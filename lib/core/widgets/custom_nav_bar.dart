@@ -33,42 +33,29 @@ class _BottomNavBarState extends State<BottomNavBar> {
           child: Text("Cart"),
         ),
       ),
-      Container(
-        color: Colors.red,
-        child: const Center(
-          child: Text("Profile"),
-        ),
-      ),
     ];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        inactiveIcon: const Icon(Icons.home_outlined, size: 26),
-        icon: const Icon(Icons.home, size: 28),
+        inactiveIcon: const Icon(Icons.home_outlined),
+        icon: const Icon(Icons.home),
         title: "Home",
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: AppColors.greyPrimary,
       ),
       PersistentBottomNavBarItem(
-        inactiveIcon: const Icon(Icons.favorite_border_outlined, size: 26),
-        icon: const Icon(Icons.favorite, size: 28),
+        inactiveIcon: const Icon(Icons.favorite_border_outlined),
+        icon: const Icon(Icons.favorite),
         title: "Favorites",
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: AppColors.greyPrimary,
       ),
       PersistentBottomNavBarItem(
-        inactiveIcon: const Icon(Icons.shopping_cart_outlined, size: 26),
-        icon: const Icon(Icons.shopping_cart, size: 28),
+        inactiveIcon: const Icon(Icons.shopping_cart_outlined),
+        icon: const Icon(Icons.shopping_cart),
         title: "Cart",
-        activeColorPrimary: AppColors.primaryColor,
-        inactiveColorPrimary: AppColors.greyPrimary,
-      ),
-      PersistentBottomNavBarItem(
-        inactiveIcon: const Icon(Icons.person_outline, size: 26),
-        icon: const Icon(Icons.person, size: 28),
-        title: "Profile",
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: AppColors.greyPrimary,
       ),

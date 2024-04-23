@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/custom_app_bar_home.dart';
+import 'package:hashim_store/features/home/presentation/views/widgets/home_page_app_bar.dart';
+import 'package:hashim_store/features/home/presentation/views/widgets/home_page_body.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,11 +8,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      appBar: HomePageAppBar(),
       body: SafeArea(
         child: Column(
           children: [
-            HomePageAppBar(),
-            // HomePageBody(),
+            SizedBox(height: 40),
+            HomePageBody(),
           ],
         ),
       ),
