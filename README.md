@@ -2,7 +2,7 @@
 
 Welcome to Hashom Store! An all-in-one Flutter application for both iOS and Android, designed to bring you the ultimate shopping experience with a focus on clothing, shoes, accessories, and much more.
 
-## Features
+## Features🚀
 
 - **User Authentication**: Secure login and signup functionality to ensure a safe user experience.
 - **Admin Panel**: Administrators can publish, edit, and remove products, providing full control over the store's inventory.
