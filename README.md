@@ -1,4 +1,4 @@
-# Hashom Store🛒
+# Hashim Store🛒
 
 Welcome to Hashom Store! An all-in-one Flutter application for both iOS and Android, designed to bring you the ultimate shopping experience with a focus on clothing, shoes, accessories, and much more.
 
