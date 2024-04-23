@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/core/utils/app_router.dart';
 
 void main() {
@@ -15,11 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Hashim Store',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffDB3022)),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.white,
-          elevation: 0,
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
         useMaterial3: true,
       ),
     );

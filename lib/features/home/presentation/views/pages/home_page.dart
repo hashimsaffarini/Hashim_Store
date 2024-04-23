@@ -10,7 +10,8 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            CustomAppBar(),
+            HomePageAppBar(),
+            // HomePageBody(),
           ],
         ),
       ),

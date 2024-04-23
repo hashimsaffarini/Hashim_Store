@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/core/utils/assets.dart';
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+class HomePageAppBar extends StatelessWidget {
+  const HomePageAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {

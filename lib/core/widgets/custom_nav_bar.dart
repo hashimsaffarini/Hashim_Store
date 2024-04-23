@@ -1,0 +1,110 @@
+import 'package:flutter/material.dart';
+import 'package:hashim_store/core/utils/app_color.dart';
+import 'package:hashim_store/features/home/presentation/views/pages/home_page.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+
+class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key});
+
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  late PersistentTabController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = PersistentTabController(initialIndex: 0);
+  }
+
+  List<Widget> _buildScreens() {
+    return [
+      const HomePage(),
+      Container(
+        color: Colors.blue,
+        child: const Center(
+          child: Text("Favorites"),
+        ),
+      ),
+      Container(
+        color: Colors.green,
+        child: const Center(
+          child: Text("Cart"),
+        ),
+      ),
+      Container(
+        color: Colors.red,
+        child: const Center(
+          child: Text("Profile"),
+        ),
+      ),
+    ];
+  }
+
+  List<PersistentBottomNavBarItem> _navBarsItems() {
+    return [
+      PersistentBottomNavBarItem(
+        inactiveIcon: const Icon(Icons.home_outlined, size: 26),
+        icon: const Icon(Icons.home, size: 28),
+        title: "Home",
+        activeColorPrimary: AppColors.primaryColor,
+        inactiveColorPrimary: AppColors.greyPrimary,
+      ),
+      PersistentBottomNavBarItem(
+        inactiveIcon: const Icon(Icons.favorite_border_outlined, size: 26),
+        icon: const Icon(Icons.favorite, size: 28),
+        title: "Favorites",
+        activeColorPrimary: AppColors.primaryColor,
+        inactiveColorPrimary: AppColors.greyPrimary,
+      ),
+      PersistentBottomNavBarItem(
+        inactiveIcon: const Icon(Icons.shopping_cart_outlined, size: 26),
+        icon: const Icon(Icons.shopping_cart, size: 28),
+        title: "Cart",
+        activeColorPrimary: AppColors.primaryColor,
+        inactiveColorPrimary: AppColors.greyPrimary,
+      ),
+      PersistentBottomNavBarItem(
+        inactiveIcon: const Icon(Icons.person_outline, size: 26),
+        icon: const Icon(Icons.person, size: 28),
+        title: "Profile",
+        activeColorPrimary: AppColors.primaryColor,
+        inactiveColorPrimary: AppColors.greyPrimary,
+      ),
+    ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: PersistentTabView(
+        context,
+        controller: _controller,
+        screens: _buildScreens(),
+        items: _navBarsItems(),
+        stateManagement: false,
+        confineInSafeArea: true,
+        resizeToAvoidBottomInset:
+            true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
+        hideNavigationBarWhenKeyboardShows:
+            true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
+        popAllScreensOnTapOfSelectedTab: true,
+        popActionScreens: PopActionScreensType.all,
+        itemAnimationProperties: const ItemAnimationProperties(
+          // Navigation Bar's items animation properties.
+          duration: Duration(milliseconds: 200),
+          curve: Curves.ease,
+        ),
+        screenTransitionAnimation: const ScreenTransitionAnimation(
+          // Screen transition animation on change of selected tab.
+          animateTabTransition: true,
+          curve: Curves.ease,
+          duration: Duration(milliseconds: 200),
+        ),
+        navBarStyle:
+            NavBarStyle.style6, // Choose the nav bar style with this property.
+      ),
+    );
+  }
+}
