@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:hashim_store/core/utils/assets.dart';
+import 'package:hashim_store/features/home/presentation/views/widgets/custom_list_tile.dart';
+import 'package:hashim_store/features/home/presentation/views/widgets/drawer_header.dart';
 
 class HomePageDrawer extends StatelessWidget {
   const HomePageDrawer({
@@ -19,26 +18,7 @@ class HomePageDrawer extends StatelessWidget {
       ),
       child: ListView(
         children: [
-          UserAccountsDrawerHeader(
-            accountName: Text(
-              'Hashim Store🛍️ ',
-              style: TextStyle(
-                fontFamily: GoogleFonts.inter().fontFamily,
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            accountEmail: const Text(
-              'Palestine, Tulkarm🇵🇸',
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            currentAccountPicture: const CircleAvatar(
-              backgroundImage: AssetImage(AssetsData.logo),
-            ),
-          ),
+          const DraweHeader(),
           const SizedBox(height: 10),
           const Padding(
             padding: EdgeInsets.only(left: 15),
@@ -51,49 +31,7 @@ class HomePageDrawer extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          ListTile(
-            leading: Icon(
-              FontAwesomeIcons.facebook,
-              color: Colors.blue[800], // Facebook's iconic blue color
-            ),
-            title: const Text(
-              'Facebook',
-            ),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(
-              FontAwesomeIcons.instagram,
-              color: Colors.pink,
-            ),
-            title: const Text('Instagram'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(
-              FontAwesomeIcons.whatsapp,
-              color: Colors.green,
-            ),
-            title: const Text('WhatsApp'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(
-              FontAwesomeIcons.phone,
-              color: Colors.blue,
-              size: 20,
-            ),
-            title: const Text('Phone'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(
-              FontAwesomeIcons.locationArrow,
-              color: Colors.red,
-            ),
-            title: const Text('Location'),
-            onTap: () {},
-          ),
+          for (var item in drawerList) item,
         ],
       ),
     );
