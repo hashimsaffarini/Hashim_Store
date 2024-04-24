@@ -3,22 +3,30 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hashim_store/core/utils/assets.dart';
 
 class GridViewItem extends StatelessWidget {
-  const GridViewItem({super.key});
-
+  const GridViewItem({
+    super.key,
+    required this.title,
+    required this.imgUrl,
+    required this.price,
+  });
+  final String title;
+  final String imgUrl;
+  final int price;
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width / 2 - 38;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Stack(
           children: [
             Container(
-              height: 180,
-              width: 180,
+              height: width * 1.08,
+              width: width,
               decoration: BoxDecoration(
-                image: const DecorationImage(
+                image: DecorationImage(
                   image: AssetImage(
-                    AssetsData.test2,
+                    imgUrl,
                   ),
                   fit: BoxFit.cover,
                 ),
@@ -65,3 +73,46 @@ class GridViewItem extends StatelessWidget {
     );
   }
 }
+
+final List<GridViewItem> gridViewItems = [
+  const GridViewItem(
+    title: 'Product Name',
+    imgUrl: AssetsData.test,
+    price: 99,
+  ),
+  const GridViewItem(
+    title: 'Product Name',
+    imgUrl: AssetsData.test2,
+    price: 99,
+  ),
+  const GridViewItem(
+    title: 'Product Name',
+    imgUrl: AssetsData.test3,
+    price: 99,
+  ),
+  const GridViewItem(
+    title: 'Product Name',
+    imgUrl: AssetsData.test4,
+    price: 99,
+  ),
+  const GridViewItem(
+    title: 'Product Name',
+    imgUrl: AssetsData.test5,
+    price: 99,
+  ),
+  const GridViewItem(
+    title: 'Product Name',
+    imgUrl: AssetsData.test6,
+    price: 99,
+  ),
+  const GridViewItem(
+    title: 'Product Name',
+    imgUrl: AssetsData.test7,
+    price: 99,
+  ),
+  const GridViewItem(
+    title: 'Product Name',
+    imgUrl: AssetsData.test8,
+    price: 99,
+  ),
+];

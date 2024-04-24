@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: HomePageAppBar(),
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 40),
