@@ -31,7 +31,6 @@ class GridViewItem extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(8),
-                color: Colors.red,
               ),
             ),
             Positioned(

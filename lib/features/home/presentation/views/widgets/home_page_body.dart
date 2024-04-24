@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:hashim_store/features/home/presentation/views/widgets/categories_text.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/gird_view_categories_items.dart';
 import 'package:hashim_store/features/home/presentation/views/widgets/list_view_categories.dart';
 import 'package:hashim_store/features/home/presentation/views/widgets/search_and_filter.dart';
 
@@ -20,7 +20,6 @@ class HomePageBody extends StatelessWidget {
           SizedBox(height: 24),
           ListViewCategories(),
           SizedBox(height: 36),
-          GriveViewCategoriesItems()
         ],
       ),
     );

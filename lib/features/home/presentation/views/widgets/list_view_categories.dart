@@ -9,8 +9,8 @@ class ListViewCategories extends StatelessWidget {
     return SizedBox(
       height: 100,
       child: ListView.builder(
-        itemCount: categoriesList.length,
         scrollDirection: Axis.horizontal,
+        itemCount: categoriesList.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(right: 12),
