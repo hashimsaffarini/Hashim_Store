@@ -21,17 +21,46 @@ class HomePageDrawer extends StatelessWidget {
           const DraweHeader(),
           const SizedBox(height: 10),
           const Padding(
-            padding: EdgeInsets.only(left: 15),
+            padding: EdgeInsets.only(left: 16),
             child: Text(
               'Contact Us :',
               style: TextStyle(
-                fontSize: 26,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
           const SizedBox(height: 12),
           for (var item in drawerList) item,
+          const Divider(),
+          const SizedBox(height: 10),
+          const Padding(
+            padding: EdgeInsets.only(left: 16),
+            child: Text(
+              'Registering :',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          const SizedBox(height: 12),
+          CustomListTile(
+            title: 'Sign In',
+            icon: const Icon(
+              Icons.login,
+              color: Colors.blue,
+            ),
+            onTap: () {},
+          ),
+          CustomListTile(
+            title: 'Sign Up',
+            icon: const Icon(
+              Icons.person_add,
+              color: Colors.green,
+            ),
+            onTap: () {},
+          ),
         ],
       ),
     );

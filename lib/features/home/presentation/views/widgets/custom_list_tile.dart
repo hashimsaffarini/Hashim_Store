@@ -20,6 +20,10 @@ class CustomListTile extends StatelessWidget {
       ),
       title: Text(
         title,
+        style: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+        ),
       ),
       onTap: onTap,
     );
