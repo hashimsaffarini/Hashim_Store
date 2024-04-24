@@ -11,4 +11,6 @@ class AssetsData {
   static const String wristwatch = 'assets/images/wristwatch.png';
   static const String woman = 'assets/images/woman.png';
   static const String teens = 'assets/images/boys.png';
+  static const String test = 'assets/images/test.jpg';
+  static const String test2 = 'assets/images/test2.png';
 }

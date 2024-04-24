@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:hashim_store/features/home/presentation/views/widgets/categories_text.dart';
+import 'package:hashim_store/features/home/presentation/views/widgets/grid_view_item.dart';
 import 'package:hashim_store/features/home/presentation/views/widgets/list_view_categories.dart';
 import 'package:hashim_store/features/home/presentation/views/widgets/search_and_filter.dart';
 
@@ -20,6 +19,8 @@ class HomePageBody extends StatelessWidget {
           CategoriesText(),
           SizedBox(height: 24),
           ListViewCategories(),
+          SizedBox(height: 36),
+          GridViewItem(),
         ],
       ),
     );
