@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hashim_store/features/home/presentation/views/widgets/categories_text.dart';
@@ -16,8 +17,10 @@ class HomePageBody extends StatelessWidget {
           SearchAndFilter(),
           SizedBox(height: 26),
           CategoriesText(),
+          SizedBox(height: 24),
         ],
       ),
     );
   }
 }
+
