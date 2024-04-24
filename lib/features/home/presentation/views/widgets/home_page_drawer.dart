@@ -31,7 +31,7 @@ class HomePageDrawer extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          for (var item in drawerList) item,
+          for (var item in contactList) item,
           const Divider(),
           const SizedBox(height: 10),
           const Padding(
@@ -45,22 +45,7 @@ class HomePageDrawer extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          CustomListTile(
-            title: 'Sign In',
-            icon: const Icon(
-              Icons.login,
-              color: Colors.blue,
-            ),
-            onTap: () {},
-          ),
-          CustomListTile(
-            title: 'Sign Up',
-            icon: const Icon(
-              Icons.person_add,
-              color: Colors.green,
-            ),
-            onTap: () {},
-          ),
+          for (var item in registeringList) item,
         ],
       ),
     );

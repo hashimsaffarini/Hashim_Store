@@ -30,7 +30,7 @@ class CustomListTile extends StatelessWidget {
   }
 }
 
-final List<CustomListTile> drawerList = [
+final List<CustomListTile> contactList = [
   CustomListTile(
     title: 'Facebook',
     icon: Icon(
@@ -68,6 +68,24 @@ final List<CustomListTile> drawerList = [
     icon: const Icon(
       FontAwesomeIcons.locationArrow,
       color: Colors.red,
+    ),
+    onTap: () {},
+  ),
+];
+final List<CustomListTile> registeringList = [
+  CustomListTile(
+    title: 'Sign In',
+    icon: const Icon(
+      Icons.login,
+      color: Colors.blue,
+    ),
+    onTap: () {},
+  ),
+  CustomListTile(
+    title: 'Sign Up',
+    icon: const Icon(
+      Icons.person_add,
+      color: Colors.green,
     ),
     onTap: () {},
   ),
