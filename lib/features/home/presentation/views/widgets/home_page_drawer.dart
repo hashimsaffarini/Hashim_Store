@@ -18,7 +18,7 @@ class HomePageDrawer extends StatelessWidget {
       ),
       child: ListView(
         children: [
-          const DraweHeader(),
+          const DrawerHeaderCentered(),
           const SizedBox(height: 10),
           const Padding(
             padding: EdgeInsets.only(left: 16),
