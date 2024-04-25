@@ -18,8 +18,11 @@ class GriveViewCategoriesItems extends StatelessWidget {
       ),
       delegate: SliverChildBuilderDelegate(
         (context, index) {
-          return GridViewItem(
-            product: dummyProducts[index],
+          return GestureDetector(
+            onTap: () {},
+            child: GridViewItem(
+              product: dummyProducts[index],
+            ),
           );
         },
         childCount: dummyProducts.length,
