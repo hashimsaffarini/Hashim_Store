@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hashim_store/core/utils/app_router.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 import 'package:hashim_store/features/home/presentation/views/widgets/grid_view_item.dart';
 
@@ -19,7 +21,12 @@ class GriveViewCategoriesItems extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           return GestureDetector(
-            onTap: () {},
+            onTap: () {
+              GoRouter.of(context).push(
+                AppRouter.productDetailsPage,
+                extra: dummyProducts[index],
+              );
+            },
             child: GridViewItem(
               product: dummyProducts[index],
             ),
