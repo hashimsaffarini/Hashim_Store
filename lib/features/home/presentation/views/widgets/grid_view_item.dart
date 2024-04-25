@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hashim_store/core/utils/assets.dart';
+import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 
 class GridViewItem extends StatelessWidget {
   const GridViewItem({
     super.key,
-    required this.title,
-    required this.imgUrl,
-    required this.price,
+    required this.product,
   });
-  final String title;
-  final String imgUrl;
-  final int price;
+  final ProductItemModel product;
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width / 2 - 38;
@@ -26,7 +23,7 @@ class GridViewItem extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    imgUrl,
+                    product.imgUrl,
                   ),
                   fit: BoxFit.cover,
                 ),
@@ -72,46 +69,3 @@ class GridViewItem extends StatelessWidget {
     );
   }
 }
-
-final List<GridViewItem> gridViewItems = [
-  const GridViewItem(
-    title: 'Product Name',
-    imgUrl: AssetsData.test,
-    price: 99,
-  ),
-  const GridViewItem(
-    title: 'Product Name',
-    imgUrl: AssetsData.test2,
-    price: 99,
-  ),
-  const GridViewItem(
-    title: 'Product Name',
-    imgUrl: AssetsData.test3,
-    price: 99,
-  ),
-  const GridViewItem(
-    title: 'Product Name',
-    imgUrl: AssetsData.test4,
-    price: 99,
-  ),
-  const GridViewItem(
-    title: 'Product Name',
-    imgUrl: AssetsData.test5,
-    price: 99,
-  ),
-  const GridViewItem(
-    title: 'Product Name',
-    imgUrl: AssetsData.test6,
-    price: 99,
-  ),
-  const GridViewItem(
-    title: 'Product Name',
-    imgUrl: AssetsData.test7,
-    price: 99,
-  ),
-  const GridViewItem(
-    title: 'Product Name',
-    imgUrl: AssetsData.test8,
-    price: 99,
-  ),
-];

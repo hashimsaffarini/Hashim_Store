@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 import 'package:hashim_store/features/home/presentation/views/widgets/grid_view_item.dart';
 
 class GriveViewCategoriesItems extends StatelessWidget {
@@ -17,9 +18,11 @@ class GriveViewCategoriesItems extends StatelessWidget {
       ),
       delegate: SliverChildBuilderDelegate(
         (context, index) {
-          return gridViewItems[index];
+          return GridViewItem(
+            product: dummyProducts[index],
+          );
         },
-        childCount: gridViewItems.length,
+        childCount: dummyProducts.length,
       ),
     );
   }
