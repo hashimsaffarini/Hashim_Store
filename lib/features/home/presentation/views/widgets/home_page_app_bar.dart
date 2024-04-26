@@ -32,6 +32,17 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ],
       ),
+      leading: Builder(
+        builder: (context) {
+          return IconButton(
+            icon: const Icon(
+              Icons.menu,
+              size: 30,
+            ),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          );
+        },
+      ),
       actions: const [
         CircleAvatar(
           backgroundImage: AssetImage(
