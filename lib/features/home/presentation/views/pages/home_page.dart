@@ -16,7 +16,6 @@ class HomePage extends StatelessWidget {
           SliverToBoxAdapter(
             child: Column(
               children: [
-                SizedBox(height: 40),
                 HomePageBody(),
               ],
             ),

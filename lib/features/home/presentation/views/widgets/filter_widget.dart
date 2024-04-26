@@ -9,11 +9,11 @@ class FilterWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        height: 65,
-        width: 65,
+        height: 58,
+        width: 58,
         decoration: BoxDecoration(
           color: AppColors.primaryColor,
-          borderRadius: BorderRadius.circular(50),
+          borderRadius: BorderRadius.circular(20),
         ),
         child: const Icon(
           Icons.filter_alt_rounded,

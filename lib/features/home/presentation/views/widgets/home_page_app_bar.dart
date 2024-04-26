@@ -48,9 +48,9 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
           backgroundImage: AssetImage(
             AssetsData.profileImage,
           ),
-          radius: 27,
+          radius: 24,
         ),
-        SizedBox(width: 22),
+        SizedBox(width: 36),
       ],
     );
   }

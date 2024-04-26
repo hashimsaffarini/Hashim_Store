@@ -12,7 +12,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(vertical: 18),
+        contentPadding: const EdgeInsets.symmetric(vertical: 10),
         hintText: 'Search',
         hintStyle: GoogleFonts.inter(
           color: AppColors.greyPrimary,
