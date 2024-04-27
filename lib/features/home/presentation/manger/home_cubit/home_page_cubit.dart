@@ -18,9 +18,13 @@ class HomePageCubit extends Cubit<HomePageState> {
   }
 
   void getAllProducts() async {
-    log('getAllProducts');
-    emit(HomePageLoading());
-    //await Future.delayed(const Duration(seconds: 1));
-    emit(HomePageLoaded(dummyProducts, dummyFavouriteProducts));
+    try {
+      emit(HomePageLoading());
+      await Future.delayed(const Duration(seconds: 1));
+      emit(HomePageLoaded(dummyProducts, dummyFavouriteProducts));
+    } catch (e) {
+      emit(HomePageError("Failed to fetch products"));
+      log('Error fetching products: $e');
+    }
   }
 }
