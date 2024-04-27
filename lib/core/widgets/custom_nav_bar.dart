@@ -23,11 +23,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   List<Widget> _buildScreens() {
     return [
       BlocProvider(
-        create: (context) {
-          final cubit = HomePageCubit();
-          cubit.getAllProducts();
-          return cubit;
-        },
+        create: (context) => HomePageCubit(),
         child: const HomePage(),
       ),
       Container(

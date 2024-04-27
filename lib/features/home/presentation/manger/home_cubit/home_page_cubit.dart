@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 
@@ -15,8 +17,10 @@ class HomePageCubit extends Cubit<HomePageState> {
     emit(HomePageLoaded(dummyProducts, dummyFavouriteProducts));
   }
 
-  void getAllProducts() {
+  void getAllProducts() async {
+    log('getAllProducts');
     emit(HomePageLoading());
+    //await Future.delayed(const Duration(seconds: 1));
     emit(HomePageLoaded(dummyProducts, dummyFavouriteProducts));
   }
 }
