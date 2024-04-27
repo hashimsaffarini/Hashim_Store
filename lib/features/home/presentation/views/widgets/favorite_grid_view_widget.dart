@@ -28,20 +28,26 @@ class FavoriteGridViewWidget extends StatelessWidget {
         child: Center(
           child: BlocBuilder<HomePageCubit, HomePageState>(
             builder: (context, state) {
-              return IconButton(
-                onPressed: () {
-                  cubit.changeFavoriteState(product);
-                  log(cubit.favouriteProductsCubit.length.toString());
-                },
-                icon: Icon(
-                  cubit.favouriteProductsCubit.contains(product)
-                      ? Icons.favorite
-                      : Icons.favorite_border,
-                  color: cubit.favouriteProductsCubit.contains(product)
-                      ? AppColors.primaryColor
-                      : Colors.black,
-                ),
-              );
+              if (state is HomePageLoaded) {
+                return IconButton(
+                  onPressed: () {
+                    cubit.changeFavoriteState(product);
+                    log(state.favProducts.length.toString());
+                  },
+                  icon: Icon(
+                    state.favProducts.contains(product)
+                        ? Icons.favorite
+                        : Icons.favorite_border,
+                    color: state.favProducts.contains(product)
+                        ? AppColors.primaryColor
+                        : Colors.black,
+                  ),
+                );
+              } else if (state is HomePageLoading) {
+                return const CircularProgressIndicator.adaptive();
+              } else {
+                return const SizedBox();
+              }
             },
           ),
         ),

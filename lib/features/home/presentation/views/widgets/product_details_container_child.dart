@@ -22,7 +22,9 @@ class ProductDetailsContainerChild extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HeaderDetailsPage(title: product.title),
+          HeaderDetailsPage(
+            product: product,
+          ),
           const SizedBox(height: 4),
           Text(
             '₪99.99',

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
+import 'package:hashim_store/features/home/presentation/manger/home_cubit/home_page_cubit.dart';
 import 'package:hashim_store/features/home/presentation/views/pages/home_page.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
@@ -20,7 +22,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   List<Widget> _buildScreens() {
     return [
-      const HomePage(),
+      BlocProvider(
+        create: (context) {
+          final cubit = HomePageCubit();
+          cubit.getAllProducts();
+          return cubit;
+        },
+        child: const HomePage(),
+      ),
       Container(
         color: Colors.blue,
         child: const Center(

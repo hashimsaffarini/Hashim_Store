@@ -4,11 +4,16 @@ import 'package:hashim_store/core/utils/app_router.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 import 'package:hashim_store/features/home/presentation/views/widgets/grid_view_item.dart';
 
-class GriveViewCategoriesItems extends StatelessWidget {
+class GriveViewCategoriesItems extends StatefulWidget {
   const GriveViewCategoriesItems({
     super.key,
   });
 
+  @override
+  State<GriveViewCategoriesItems> createState() => _GriveViewCategoriesItemsState();
+}
+
+class _GriveViewCategoriesItemsState extends State<GriveViewCategoriesItems> {
   @override
   Widget build(BuildContext context) {
     return SliverGrid(
@@ -25,7 +30,7 @@ class GriveViewCategoriesItems extends StatelessWidget {
               GoRouter.of(context).push(
                 AppRouter.productDetailsPage,
                 extra: dummyProducts[index],
-              );
+              ).then((value) => setState(() {}));
             },
             child: GridViewItem(
               product: dummyProducts[index],

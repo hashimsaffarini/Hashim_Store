@@ -6,34 +6,40 @@ import 'package:hashim_store/features/home/presentation/views/widgets/home_page_
 import 'package:hashim_store/features/home/presentation/views/widgets/home_page_body.dart';
 import 'package:hashim_store/features/home/presentation/views/widgets/home_page_drawer.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<HomePageCubit>(context).getAllProducts();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomePageCubit(
-        
-      ),
-      child: const Scaffold(
-        appBar: HomePageAppBar(),
-        body: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: Column(
-                children: [
-                  HomePageBody(),
-                ],
-              ),
+    return const Scaffold(
+      appBar: HomePageAppBar(),
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                HomePageBody(),
+              ],
             ),
-            SliverPadding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
-              sliver: GriveViewCategoriesItems(),
-            ),
-          ],
-        ),
-        drawer: HomePageDrawer(),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: 24),
+            sliver: GriveViewCategoriesItems(),
+          ),
+        ],
       ),
+      drawer: HomePageDrawer(),
     );
   }
 }
