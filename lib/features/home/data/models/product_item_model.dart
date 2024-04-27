@@ -7,7 +7,8 @@ class ProductItemModel {
   final String description;
   final int price;
   final String category;
-
+  final List<String> colors;
+  final List<String> sizes;
   const ProductItemModel({
     required this.id,
     required this.title,
@@ -15,6 +16,24 @@ class ProductItemModel {
     required this.description,
     required this.price,
     required this.category,
+    this.colors = const [
+      'FF8A08',
+      '121481',
+      'FFC470',
+      '86469C',
+      'FA7070',
+      '76885B'
+    ],
+    this.sizes = const [
+      'S',
+      'M',
+      'L',
+      'XL',
+      'XXL',
+      '3XL',
+      '4XL',
+      '5XL',
+    ],
   });
 }
 

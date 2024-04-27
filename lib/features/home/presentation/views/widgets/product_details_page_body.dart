@@ -13,7 +13,7 @@ class ProductDetailsPageBody extends StatelessWidget {
       children: [
         ProductDetailsImage(size: size, product: product),
         Padding(
-          padding: EdgeInsets.only(top: size.height * 0.5),
+          padding: EdgeInsets.only(top: size.height * 0.38),
           child: Container(
             width: size.width,
             height: size.height * 0.6,
@@ -24,7 +24,9 @@ class ProductDetailsPageBody extends StatelessWidget {
                 topRight: Radius.circular(30),
               ),
             ),
-            child: ProductDetailsContainerChild(product: product),
+            child: SingleChildScrollView(
+              child: ProductDetailsContainerChild(product: product),
+            ),
           ),
         )
       ],
