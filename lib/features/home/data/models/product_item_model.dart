@@ -37,6 +37,7 @@ class ProductItemModel {
   });
 }
 
+List<ProductItemModel> favouriteProducts = [];
 final List<ProductItemModel> dummyProducts = [
   const ProductItemModel(
     title: 'Product Name',

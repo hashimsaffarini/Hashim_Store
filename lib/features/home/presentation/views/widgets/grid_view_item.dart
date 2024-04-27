@@ -24,7 +24,9 @@ class GridViewItem extends StatelessWidget {
               width: width,
               product: product,
             ),
-            const FavoriteGridViewWidget(),
+            FavoriteGridViewWidget(
+              product: product,
+            ),
           ],
         ),
         const SizedBox(height: 8),
