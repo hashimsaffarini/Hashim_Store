@@ -7,16 +7,12 @@ final class HomePageInitial extends HomePageState {}
 final class HomePageLoading extends HomePageState {}
 
 final class HomePageLoaded extends HomePageState {
+  final List<ProductItemModel> favProducts;
   final List<ProductItemModel> products;
-  HomePageLoaded(this.products);
+  HomePageLoaded(this.products, this.favProducts);
 }
 
 final class HomePageError extends HomePageState {
   final String message;
   HomePageError(this.message);
-}
-
-final class FavoriteProducts extends HomePageState {
-  final List<ProductItemModel> products;
-  FavoriteProducts(this.products);
 }
