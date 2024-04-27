@@ -51,5 +51,5 @@ class ProductDetailsPageAppBar extends StatelessWidget
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(120);
+  Size get preferredSize => const Size.fromHeight(65);
 }

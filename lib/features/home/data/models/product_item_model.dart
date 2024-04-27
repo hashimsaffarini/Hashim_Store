@@ -17,12 +17,12 @@ class ProductItemModel {
     required this.price,
     required this.category,
     this.colors = const [
-      'FF8A08',
+      '720455',
       '121481',
-      'FFC470',
-      '86469C',
-      'FA7070',
-      '76885B'
+      '430A5D',
+      '222831',
+      '344955',
+      '000000'
     ],
     this.sizes = const [
       'S',

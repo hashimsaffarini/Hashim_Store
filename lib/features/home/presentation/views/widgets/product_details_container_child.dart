@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
+import 'package:hashim_store/core/widgets/custom_button.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 import 'package:hashim_store/features/home/presentation/views/widgets/available_sizes_list_view.dart';
+import 'package:hashim_store/features/home/presentation/views/widgets/colors_available_list_view.dart';
+import 'package:hashim_store/features/home/presentation/views/widgets/header_details_page.dart';
 
 class ProductDetailsContainerChild extends StatelessWidget {
   const ProductDetailsContainerChild({
@@ -19,29 +22,7 @@ class ProductDetailsContainerChild extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                product.title,
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 12),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.favorite_border,
-                    color: Colors.black,
-                    size: 30,
-                  ),
-                ),
-              ),
-            ],
-          ),
+          HeaderDetailsPage(title: product.title),
           const SizedBox(height: 4),
           Text(
             '₪99.99',
@@ -91,31 +72,15 @@ class ProductDetailsContainerChild extends StatelessWidget {
           ColorsAvailableListView(
             colors: product.colors,
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class ColorsAvailableListView extends StatelessWidget {
-  const ColorsAvailableListView({super.key, required this.colors});
-  final List<String> colors;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 60,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: colors.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: CircleAvatar(
-              radius: 30,
-              backgroundColor: Color(int.parse('0xff${colors[index]}')),
+          const SizedBox(height: 24),
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: CustomButton(
+              title: 'Message Us',
+              onTap: () {},
             ),
-          );
-        },
+          ),
+        ],
       ),
     );
   }
