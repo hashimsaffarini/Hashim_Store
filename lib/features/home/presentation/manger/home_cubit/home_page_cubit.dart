@@ -20,7 +20,7 @@ class HomePageCubit extends Cubit<HomePageState> {
   void getAllProducts() async {
     try {
       emit(HomePageLoading());
-      await Future.delayed(const Duration(seconds: 1));
+      // await Future.delayed(const Duration(seconds: 1));
       emit(HomePageLoaded(dummyProducts, dummyFavouriteProducts));
     } catch (e) {
       emit(HomePageError("Failed to fetch products"));
