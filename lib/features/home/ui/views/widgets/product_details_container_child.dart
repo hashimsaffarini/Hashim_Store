@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -104,7 +102,6 @@ class ProductDetailsContainerChild extends StatelessWidget {
                     );
                   } else {
                     if (HomePageCubit.cartProductsCubit.contains(product)) {
-                      log('product already in cart');
                       return CustomButton(
                         onPressed: null,
                         child: Text(
