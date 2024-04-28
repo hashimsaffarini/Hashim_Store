@@ -4,11 +4,13 @@ import 'package:hashim_store/core/utils/assets.dart';
 class CustomCategoryItem extends StatelessWidget {
   const CustomCategoryItem({
     super.key,
-    required this.title,
+    required this.category,
     required this.imgUrl,
     this.onTap,
+    required this.id,
   });
-  final String title;
+  final String id;
+  final String category;
   final String imgUrl;
   final void Function()? onTap;
   @override
@@ -31,7 +33,7 @@ class CustomCategoryItem extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          title,
+          category,
           style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
@@ -44,42 +46,50 @@ class CustomCategoryItem extends StatelessWidget {
 
 final List<CustomCategoryItem> categoriesList = [
   CustomCategoryItem(
-    title: 'All',
+    id: '0',
+    category: 'All',
     imgUrl: AssetsData.all,
     onTap: () {},
   ),
   CustomCategoryItem(
-    title: 'Man',
+    id: '1',
+    category: 'Man',
     imgUrl: AssetsData.man,
     onTap: () {},
   ),
   CustomCategoryItem(
-    title: 'Woman',
+    id: '2',
+    category: 'Woman',
     imgUrl: AssetsData.woman,
     onTap: () {},
   ),
   CustomCategoryItem(
-    title: 'Teens',
+    id: '3',
+    category: 'Teens',
     imgUrl: AssetsData.teens,
     onTap: () {},
   ),
   CustomCategoryItem(
-    title: 'Baby',
+    id: '4',
+    category: 'Baby',
     imgUrl: AssetsData.baby,
     onTap: () {},
   ),
   CustomCategoryItem(
-    title: 'Shoes',
+    id: '5',
+    category: 'Shoes',
     imgUrl: AssetsData.shoes,
     onTap: () {},
   ),
   CustomCategoryItem(
-    title: 'Summer',
+    id: '6',
+    category: 'Summer',
     imgUrl: AssetsData.summer,
     onTap: () {},
   ),
   CustomCategoryItem(
-    title: 'Wristwatch',
+    id: '7',
+    category: 'Wristwatch',
     imgUrl: AssetsData.wristwatch,
     onTap: () {},
   ),
