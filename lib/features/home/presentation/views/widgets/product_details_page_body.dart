@@ -6,29 +6,33 @@ import 'package:hashim_store/features/home/presentation/views/widgets/product_de
 class ProductDetailsPageBody extends StatelessWidget {
   const ProductDetailsPageBody({super.key, required this.product});
   final ProductItemModel product;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Stack(
       children: [
         ProductDetailsImage(size: size, product: product),
-        Padding(
-          padding: EdgeInsets.only(top: size.height * 0.38),
-          child: Container(
-            width: size.width,
-            height: size.height * 0.6,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30),
-                topRight: Radius.circular(30),
+        DraggableScrollableSheet(
+          maxChildSize: 0.66,
+          initialChildSize: 0.6,
+          minChildSize: 0.5,
+          builder: (BuildContext context, ScrollController scrollController) {
+            return Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
               ),
-            ),
-            child: SingleChildScrollView(
-              child: ProductDetailsContainerChild(product: product),
-            ),
-          ),
-        )
+              child: SingleChildScrollView(
+                controller: scrollController,
+                child: ProductDetailsContainerChild(product: product),
+              ),
+            );
+          },
+        ),
       ],
     );
   }
