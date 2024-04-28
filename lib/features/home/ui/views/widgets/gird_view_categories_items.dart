@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hashim_store/core/utils/app_router.dart';
 import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/empty_widget.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/grid_view_item.dart';
 
 class GriveViewCategoriesItems extends StatefulWidget {
@@ -31,32 +31,36 @@ class _GriveViewCategoriesItemsState extends State<GriveViewCategoriesItems> {
             ),
           );
         } else if (state is HomePageLoaded) {
-          return SliverGrid(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 0.7,
-              crossAxisCount: 2,
-              crossAxisSpacing: 14,
-              mainAxisSpacing: 12,
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    GoRouter.of(context)
-                        .push(
-                          AppRouter.productDetailsPage,
-                          extra: state.products[index],
-                        )
-                        .then((value) => setState(() {}));
-                  },
-                  child: GridViewItem(
-                    product: state.products[index],
-                  ),
-                );
-              },
-              childCount: state.products.length,
-            ),
-          );
+          if (state.products.isEmpty) {
+            return const EmptyWidget();
+          } else {
+            return SliverGrid(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                childAspectRatio: 0.7,
+                crossAxisCount: 2,
+                crossAxisSpacing: 14,
+                mainAxisSpacing: 12,
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context)
+                          .push(
+                            AppRouter.productDetailsPage,
+                            extra: state.products[index],
+                          )
+                          .then((value) => setState(() {}));
+                    },
+                    child: GridViewItem(
+                      product: state.products[index],
+                    ),
+                  );
+                },
+                childCount: state.products.length,
+              ),
+            );
+          }
         } else {
           return const SliverToBoxAdapter(
             child: Center(
