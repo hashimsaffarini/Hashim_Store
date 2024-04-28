@@ -78,7 +78,7 @@ class ProductDetailsContainerChild extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 16),
             child: CustomButton(
-              title: 'Message Us',
+              title: 'Add to cart',
               onTap: () {},
             ),
           ),
