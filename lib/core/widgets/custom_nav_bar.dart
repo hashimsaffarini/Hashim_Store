@@ -87,7 +87,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           duration: Duration(milliseconds: 200),
         ),
         navBarStyle:
-            NavBarStyle.style6, // Choose the nav bar style with this property.
+            NavBarStyle.style1, // Choose the nav bar style with this property.
       ),
     );
   }
