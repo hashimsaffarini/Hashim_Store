@@ -1,8 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/core/widgets/custom_button.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
+import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/available_sizes_list_view.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/colors_available_list_view.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/header_details_page.dart';
@@ -77,9 +81,60 @@ class ProductDetailsContainerChild extends StatelessWidget {
           const SizedBox(height: 24),
           Padding(
             padding: const EdgeInsets.only(right: 16),
-            child: CustomButton(
-              title: 'Add to cart',
-              onTap: () {},
+            child: BlocProvider(
+              create: (context) => HomePageCubit(),
+              child: BlocBuilder<HomePageCubit, HomePageState>(
+                builder: (context, state) {
+                  if (state is AddingToCart) {
+                    return const CustomButton(
+                      onPressed: null,
+                      child: CircularProgressIndicator.adaptive(),
+                    );
+                  } else if (state is AddedToCart) {
+                    return CustomButton(
+                      onPressed: null,
+                      child: Text(
+                        'Added to cart',
+                        style: GoogleFonts.inter(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
+                      ),
+                    );
+                  } else {
+                    if (HomePageCubit.cartProductsCubit.contains(product)) {
+                      log('product already in cart');
+                      return CustomButton(
+                        onPressed: null,
+                        child: Text(
+                          'Already in cart',
+                          style: GoogleFonts.inter(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
+                        ),
+                      );
+                    } else {
+                      return CustomButton(
+                        onPressed: () {
+                          BlocProvider.of<HomePageCubit>(context)
+                              .addToCart(product);
+                        },
+                        child: Text(
+                          'Add to cart',
+                          style: GoogleFonts.inter(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
+                        ),
+                      );
+                    }
+                  }
+                },
+              ),
             ),
           ),
         ],
