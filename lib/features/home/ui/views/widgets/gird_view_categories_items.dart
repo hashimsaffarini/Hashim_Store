@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,13 +20,8 @@ class _GriveViewCategoriesItemsState extends State<GriveViewCategoriesItems> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomePageCubit, HomePageState>(
-      buildWhen: (previous, current) =>
-          current is HomePageLoaded ||
-          current is HomePageLoading ||
-          current is HomePageError,
       builder: (context, state) {
         if (state is HomePageLoading) {
-          log('HomePageLoading');
           return const SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.only(top: 120),
@@ -37,7 +31,6 @@ class _GriveViewCategoriesItemsState extends State<GriveViewCategoriesItems> {
             ),
           );
         } else if (state is HomePageLoaded) {
-          log('HomePageLoaded hi');
           return SliverGrid(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               childAspectRatio: 0.7,

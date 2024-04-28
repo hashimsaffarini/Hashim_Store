@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
@@ -32,7 +30,6 @@ class FavoriteGridViewWidget extends StatelessWidget {
                 return IconButton(
                   onPressed: () {
                     cubit.changeFavoriteState(product);
-                    log(state.favProducts.length.toString());
                   },
                   icon: Icon(
                     state.favProducts.contains(product)
