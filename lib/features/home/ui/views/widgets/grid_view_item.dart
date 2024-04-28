@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/container_gird_view_widget.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/favorite_grid_view_widget.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/container_gird_view_widget.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/favorite_grid_view_widget.dart';
 
 class GridViewItem extends StatelessWidget {
   const GridViewItem({

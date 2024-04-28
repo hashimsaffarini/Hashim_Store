@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
-import 'package:hashim_store/features/home/presentation/manger/home_cubit/home_page_cubit.dart';
-import 'package:hashim_store/features/home/presentation/views/pages/home_page.dart';
+import 'package:hashim_store/features/cart/ui/views/pages/cart_page.dart';
+import 'package:hashim_store/features/favorite/ui/views/pages/favorite_page.dart';
+import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
+import 'package:hashim_store/features/home/ui/views/pages/home_page.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -26,18 +28,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
         create: (context) => HomePageCubit(),
         child: const HomePage(),
       ),
-      Container(
-        color: Colors.blue,
-        child: const Center(
-          child: Text("Favorites"),
-        ),
-      ),
-      Container(
-        color: Colors.green,
-        child: const Center(
-          child: Text("Cart"),
-        ),
-      ),
+      const FavoritePage(),
+      const CartPage(),
     ];
   }
 

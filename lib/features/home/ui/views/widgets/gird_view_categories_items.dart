@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hashim_store/core/utils/app_router.dart';
-import 'package:hashim_store/features/home/presentation/manger/home_cubit/home_page_cubit.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/grid_view_item.dart';
+import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/grid_view_item.dart';
 
 class GriveViewCategoriesItems extends StatefulWidget {
   const GriveViewCategoriesItems({
@@ -21,6 +21,10 @@ class _GriveViewCategoriesItemsState extends State<GriveViewCategoriesItems> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomePageCubit, HomePageState>(
+      buildWhen: (previous, current) =>
+          current is HomePageLoaded ||
+          current is HomePageLoading ||
+          current is HomePageError,
       builder: (context, state) {
         if (state is HomePageLoading) {
           log('HomePageLoading');
@@ -33,7 +37,7 @@ class _GriveViewCategoriesItemsState extends State<GriveViewCategoriesItems> {
             ),
           );
         } else if (state is HomePageLoaded) {
-          log('HomePageLoaded');
+          log('HomePageLoaded hi');
           return SliverGrid(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               childAspectRatio: 0.7,

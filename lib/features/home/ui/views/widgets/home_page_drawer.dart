@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/custom_list_tile.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/drawer_header.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/custom_list_tile.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/drawer_header.dart';
 
 class HomePageDrawer extends StatelessWidget {
   const HomePageDrawer({

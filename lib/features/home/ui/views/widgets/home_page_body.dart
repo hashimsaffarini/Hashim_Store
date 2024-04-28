@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/categories_text.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/list_view_categories.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/search_and_filter.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/categories_text.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/list_view_categories.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/search_and_filter.dart';
 
 class HomePageBody extends StatelessWidget {
   const HomePageBody({super.key});

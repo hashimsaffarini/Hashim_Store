@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
-import 'package:hashim_store/features/home/presentation/manger/home_cubit/home_page_cubit.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/product_details_app_bar.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/product_details_page_body.dart';
+import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/product_details_app_bar.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/product_details_page_body.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   const ProductDetailsPage({super.key, required this.product});

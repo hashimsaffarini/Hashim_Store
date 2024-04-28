@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/custum_category_item.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/custum_category_item.dart';
 
 class ListViewCategories extends StatelessWidget {
   const ListViewCategories({super.key});

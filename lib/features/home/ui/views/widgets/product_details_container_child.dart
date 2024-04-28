@@ -3,9 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/core/widgets/custom_button.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/available_sizes_list_view.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/colors_available_list_view.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/header_details_page.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/available_sizes_list_view.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/colors_available_list_view.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/header_details_page.dart';
 
 class ProductDetailsContainerChild extends StatelessWidget {
   const ProductDetailsContainerChild({

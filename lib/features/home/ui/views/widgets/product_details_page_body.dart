@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/producr_details_image.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/product_details_container_child.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/producr_details_image.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/product_details_container_child.dart';
 
 class ProductDetailsPageBody extends StatelessWidget {
   const ProductDetailsPageBody({super.key, required this.product});

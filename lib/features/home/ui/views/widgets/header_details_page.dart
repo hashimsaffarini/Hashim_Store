@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
-import 'package:hashim_store/features/home/presentation/manger/home_cubit/home_page_cubit.dart';
+import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
 
 class HeaderDetailsPage extends StatelessWidget {
   const HeaderDetailsPage({

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hashim_store/features/home/presentation/manger/home_cubit/home_page_cubit.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/gird_view_categories_items.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/home_page_app_bar.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/home_page_body.dart';
-import 'package:hashim_store/features/home/presentation/views/widgets/home_page_drawer.dart';
+import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/gird_view_categories_items.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/home_page_app_bar.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/home_page_body.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/home_page_drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
