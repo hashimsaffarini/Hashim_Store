@@ -5,8 +5,9 @@ import 'package:hashim_store/core/utils/app_color.dart';
 class XmarkWidget extends StatelessWidget {
   const XmarkWidget({
     super.key,
+    required this.onPressed,
   });
-
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -17,7 +18,7 @@ class XmarkWidget extends StatelessWidget {
           color: AppColors.greyPrimary,
           size: 28,
         ),
-        onPressed: () {},
+        onPressed: onPressed,
       ),
     );
   }

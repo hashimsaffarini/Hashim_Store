@@ -5,15 +5,16 @@ import 'package:hashim_store/core/utils/app_color.dart';
 class AddToCartWidget extends StatelessWidget {
   const AddToCartWidget({
     super.key,
+    required this.onTap,
   });
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Positioned(
       right: 2,
       bottom: 0,
       child: GestureDetector(
-        onTap: () {},
+        onTap: onTap,
         child: Container(
           padding: const EdgeInsets.all(12),
           decoration: const BoxDecoration(

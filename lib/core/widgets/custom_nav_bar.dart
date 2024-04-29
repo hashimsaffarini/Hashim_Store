@@ -28,7 +28,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
         create: (context) => HomePageCubit(),
         child: const HomePage(),
       ),
-      const FavoritePage(),
+      BlocProvider(
+        create: (context) => HomePageCubit()..getAllProducts(),
+        child: const FavoritePage(),
+      ),
       const CartPage(),
     ];
   }

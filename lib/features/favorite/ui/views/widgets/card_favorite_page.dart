@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
-import 'package:hashim_store/core/utils/assets.dart';
+import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 
 class CardFavoritePage extends StatelessWidget {
   const CardFavoritePage({
     super.key,
+    required this.product,
   });
-
+  final ProductItemModel product;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -19,20 +20,20 @@ class CardFavoritePage extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.asset(
-                AssetsData.test5,
+                product.imgUrl,
                 height: 130,
                 width: 120,
                 fit: BoxFit.cover,
               ),
             ),
-            const Expanded(
+             Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 12.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Product',
+                    product.title,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -48,7 +49,7 @@ class CardFavoritePage extends StatelessWidget {
                     ),
                     SizedBox(height: 5),
                     Text(
-                      '₪99.99',
+                      '₪${product.price}',
                       style: TextStyle(
                         fontSize: 17,
                         color: AppColors.greyPrimary,

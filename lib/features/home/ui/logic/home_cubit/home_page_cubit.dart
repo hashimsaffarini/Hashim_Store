@@ -17,8 +17,9 @@ class HomePageCubit extends Cubit<HomePageState> {
     } else {
       dummyFavouriteProducts.add(product);
     }
-    emit(HomePageLoaded(
-        dummyProducts, dummyFavouriteProducts, dummyCartProducts));
+    emit(
+      HomePageLoaded(dummyProducts, dummyFavouriteProducts, dummyCartProducts),
+    );
   }
 
   void getAllProducts() async {
