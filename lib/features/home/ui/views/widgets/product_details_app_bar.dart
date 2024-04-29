@@ -12,6 +12,7 @@ class ProductDetailsPageAppBar extends StatelessWidget
       automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0,
+      surfaceTintColor: Colors.transparent,
       flexibleSpace: LayoutBuilder(
         builder: (context, constraints) {
           return Padding(
