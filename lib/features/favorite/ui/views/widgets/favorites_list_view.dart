@@ -46,7 +46,20 @@ class FavoritesListView extends StatelessWidget {
                         AddToCartWidget(
                           onTap: () {
                             log('Add to cart');
-                            cubit.addToCart(favProducts[index]);
+                            cubit.addToCartFromFavorite(favProducts[index]);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Product added to cart',
+                                  style: GoogleFonts.inter(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                backgroundColor: AppColors.greyPrimary,
+                              ),
+                            );
                           },
                         ),
                         XmarkWidget(

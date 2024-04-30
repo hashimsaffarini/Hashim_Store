@@ -12,6 +12,7 @@ class HomePageCubit extends Cubit<HomePageState> {
   static List<ProductItemModel> cartProductsCubit = [];
 
   void changeFavoriteState(ProductItemModel product) {
+    emit(HomePageLoading());
     if (dummyFavouriteProducts.contains(product)) {
       dummyFavouriteProducts.remove(product);
     } else {
@@ -57,6 +58,19 @@ class HomePageCubit extends Cubit<HomePageState> {
     } catch (e) {
       emit(AddToCartError("Failed to add to cart"));
       log('Error adding to cart: $e');
+    }
+  }
+
+  Future<void> addToCartFromFavorite(ProductItemModel product) async {
+    emit(HomePageLoading());
+    try {
+      dummyCartProducts.add(product);
+      cartProductsCubit.add(product);
+      emit(HomePageLoaded(
+          dummyProducts, dummyFavouriteProducts, dummyCartProducts));
+    } catch (e) {
+      emit(HomePageError("Failed to fetch products"));
+      log('Error fetching products: $e');
     }
   }
 }
