@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,8 +44,8 @@ class FavoritesListView extends StatelessWidget {
                         ),
                         AddToCartWidget(
                           onTap: () {
-                            log('Add to cart');
                             cubit.addToCartFromFavorite(favProducts[index]);
+                            cubit.changeFavoriteState(favProducts[index]);
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
