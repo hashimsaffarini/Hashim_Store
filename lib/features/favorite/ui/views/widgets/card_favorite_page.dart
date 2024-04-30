@@ -26,31 +26,31 @@ class CardFavoritePage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-             Expanded(
+            Expanded(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0),
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                    product.title,
-                      style: TextStyle(
+                      product.title,
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
                     ),
-                    SizedBox(height: 5),
-                    Text(
+                    const SizedBox(height: 5),
+                    const Text(
                       'Add To Cart Now!',
                       style: TextStyle(
                         fontSize: 16,
                         color: AppColors.greyPrimary,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Text(
                       '₪${product.price}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 17,
                         color: AppColors.greyPrimary,
                         fontWeight: FontWeight.w700,
