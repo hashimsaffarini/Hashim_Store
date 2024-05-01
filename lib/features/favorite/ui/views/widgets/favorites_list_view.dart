@@ -44,19 +44,32 @@ class FavoritesListView extends StatelessWidget {
                         ),
                         AddToCartWidget(
                           onTap: () {
-                            AwesomeDialog(
-                              context: context,
-                              dialogType: DialogType.success,
-                              animType: AnimType.bottomSlide,
-                              dismissOnTouchOutside: false,
-                              title: 'Added to cart',
-                              desc: 'Product added to cart successfully',
-                              btnOkOnPress: () {
-                                cubit.addToCartFromFavorite(favProducts[index]);
-                                cubit.changeFavoriteState(favProducts[index]);
-                              },
-                              btnOkColor: AppColors.primaryColor,
-                            ).show();
+                            if (state.cartProducts
+                                .contains(favProducts[index])) {
+                              AwesomeDialog(
+                                context: context,
+                                dialogType: DialogType.info,
+                                animType: AnimType.bottomSlide,
+                                title: 'This product is already in the cart',
+                                btnOkOnPress: () {},
+                                btnOkColor: AppColors.primaryColor,
+                              ).show();
+                            } else {
+                              AwesomeDialog(
+                                context: context,
+                                dialogType: DialogType.success,
+                                animType: AnimType.bottomSlide,
+                                dismissOnTouchOutside: false,
+                                title: 'Added to cart',
+                                desc: 'Product added to cart successfully',
+                                btnOkOnPress: () {
+                                  cubit.addToCartFromFavorite(
+                                      favProducts[index]);
+                                  cubit.changeFavoriteState(favProducts[index]);
+                                },
+                                btnOkColor: AppColors.primaryColor,
+                              ).show();
+                            }
                           },
                         ),
                         XmarkWidget(
