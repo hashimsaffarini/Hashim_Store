@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,21 +44,19 @@ class FavoritesListView extends StatelessWidget {
                         ),
                         AddToCartWidget(
                           onTap: () {
-                            cubit.addToCartFromFavorite(favProducts[index]);
-                            cubit.changeFavoriteState(favProducts[index]);
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Product added to cart',
-                                  style: GoogleFonts.inter(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                backgroundColor: AppColors.greyPrimary,
-                              ),
-                            );
+                            AwesomeDialog(
+                              context: context,
+                              dialogType: DialogType.success,
+                              animType: AnimType.bottomSlide,
+                              dismissOnTouchOutside: false,
+                              title: 'Added to cart',
+                              desc: 'Product added to cart successfully',
+                              btnOkOnPress: () {
+                                cubit.addToCartFromFavorite(favProducts[index]);
+                                cubit.changeFavoriteState(favProducts[index]);
+                              },
+                              btnOkColor: AppColors.primaryColor,
+                            ).show();
                           },
                         ),
                         XmarkWidget(

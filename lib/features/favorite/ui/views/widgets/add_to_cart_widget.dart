@@ -15,6 +15,7 @@ class AddToCartWidget extends StatelessWidget {
       bottom: 0,
       child: GestureDetector(
         onTap: onTap,
+        
         child: Container(
           padding: const EdgeInsets.all(12),
           decoration: const BoxDecoration(

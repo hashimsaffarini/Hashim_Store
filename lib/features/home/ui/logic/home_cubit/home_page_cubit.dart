@@ -11,7 +11,7 @@ class HomePageCubit extends Cubit<HomePageState> {
   String? selectedCategory;
   static List<ProductItemModel> cartProductsCubit = [];
 
-  void changeFavoriteState(ProductItemModel product) {
+  Future<void> changeFavoriteState(ProductItemModel product)async {
     emit(HomePageLoading());
     if (dummyFavouriteProducts.contains(product)) {
       dummyFavouriteProducts.remove(product);
