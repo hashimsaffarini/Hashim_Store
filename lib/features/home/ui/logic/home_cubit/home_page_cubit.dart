@@ -10,8 +10,8 @@ class HomePageCubit extends Cubit<HomePageState> {
 
   String? selectedCategory;
   static List<ProductItemModel> cartProductsCubit = [];
-
-  Future<void> changeFavoriteState(ProductItemModel product)async {
+  int counter = 0;
+  Future<void> changeFavoriteState(ProductItemModel product) async {
     emit(HomePageLoading());
     if (dummyFavouriteProducts.contains(product)) {
       dummyFavouriteProducts.remove(product);
@@ -61,6 +61,19 @@ class HomePageCubit extends Cubit<HomePageState> {
     }
   }
 
+  Future<void> removeProductFromCart(ProductItemModel product) async {
+    emit(HomePageLoading());
+    try {
+      dummyCartProducts.remove(product);
+      cartProductsCubit.remove(product);
+      emit(HomePageLoaded(
+          dummyProducts, dummyFavouriteProducts, dummyCartProducts));
+    } catch (e) {
+      emit(HomePageError("Failed to fetch products"));
+      log('Error fetching products: $e');
+    }
+  }
+
   Future<void> addToCartFromFavorite(ProductItemModel product) async {
     emit(HomePageLoading());
     try {
@@ -72,5 +85,19 @@ class HomePageCubit extends Cubit<HomePageState> {
       emit(HomePageError("Failed to fetch products"));
       log('Error fetching products: $e');
     }
+  }
+
+  Future<void> increment(ProductItemModel product) async {
+    if (product.counterUser < product.quantity) {
+      counter++;
+    }
+    emit(QuantityChanged(counter));
+  }
+
+  Future<void> decrement(ProductItemModel product) async {
+    if (product.counterUser > 1) {
+      counter--;
+    }
+    emit(QuantityChanged(counter));
   }
 }

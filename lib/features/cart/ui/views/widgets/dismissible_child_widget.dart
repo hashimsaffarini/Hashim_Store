@@ -45,9 +45,9 @@ class DismissibleChildWidget extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 16),
-                         AddAndRemoveWidget(
-                          price: product.price,
-                         ),
+                        AddAndRemoveWidget(
+                          product: product,
+                        ),
                       ],
                     ),
                   ),
@@ -56,7 +56,7 @@ class DismissibleChildWidget extends StatelessWidget {
             ),
           ),
         ),
-        MoreVertWidget(),
+        const MoreVertWidget(),
       ],
     );
   }

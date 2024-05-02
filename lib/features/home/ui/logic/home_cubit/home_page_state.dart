@@ -29,3 +29,8 @@ final class AddToCartError extends HomePageState {
   final String message;
   AddToCartError(this.message);
 }
+
+final class QuantityChanged extends HomePageState {
+  final int counter;
+  QuantityChanged(this.counter);
+}
