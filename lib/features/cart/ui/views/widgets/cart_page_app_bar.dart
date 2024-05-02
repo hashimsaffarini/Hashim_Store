@@ -8,6 +8,7 @@ class CartPageAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.transparent,
       shadowColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
     );
   }
 

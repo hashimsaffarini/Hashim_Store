@@ -7,13 +7,22 @@ class CartPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CartPageHeaderText(),
-        SizedBox(height: 20),
-        CartPageListViewItem(),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const CartPageHeaderText(),
+          const SizedBox(height: 20),
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: 5,
+            itemBuilder: (context, index) {
+              return const CartPageListViewItem();
+            },
+          )
+        ],
+      ),
     );
   }
 }
