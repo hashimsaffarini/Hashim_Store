@@ -18,7 +18,10 @@ class CartPageBody extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 5,
             itemBuilder: (context, index) {
-              return const CartPageListViewItem();
+              return const Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: CartPageListViewItem(),
+              );
             },
           )
         ],
