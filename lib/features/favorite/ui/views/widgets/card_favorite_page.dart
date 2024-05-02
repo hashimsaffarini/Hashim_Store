@@ -52,7 +52,7 @@ class CardFavoritePage extends StatelessWidget {
                       '₪${product.price}',
                       style: const TextStyle(
                         fontSize: 17,
-                        color: AppColors.greyPrimary,
+                        color: AppColors.primaryColor,
                         fontWeight: FontWeight.w700,
                       ),
                     ),

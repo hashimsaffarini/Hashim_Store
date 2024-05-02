@@ -10,7 +10,7 @@ class CartPage extends StatelessWidget {
     return const Scaffold(
       appBar: CartPageAppBar(),
       body: Padding(
-        padding: EdgeInsets.only(left: 24, top: 30, right: 24),
+        padding: EdgeInsets.only(top: 24, left: 16, right: 16),
         child: CartPageBody(),
       ),
     );
