@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
+
 class AddAndRemoveWidget extends StatelessWidget {
   const AddAndRemoveWidget({
     super.key,
+    required this.price,
   });
-
+  final int price;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -49,9 +51,9 @@ class AddAndRemoveWidget extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        const Text(
-          '₪99.99',
-          style: TextStyle(
+        Text(
+          '₪$price',
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w700,
           ),
@@ -60,4 +62,3 @@ class AddAndRemoveWidget extends StatelessWidget {
     );
   }
 }
-

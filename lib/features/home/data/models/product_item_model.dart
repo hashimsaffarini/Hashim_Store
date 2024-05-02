@@ -7,6 +7,7 @@ class ProductItemModel {
   final String description;
   final int price;
   final String category;
+  final int quantity;
   final List<String> colors;
   final List<String> sizes;
   const ProductItemModel({
@@ -16,6 +17,7 @@ class ProductItemModel {
     required this.description,
     required this.price,
     required this.category,
+    this.quantity = 1,
     this.colors = const [
       '720455',
       '121481',

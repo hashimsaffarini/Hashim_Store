@@ -3,10 +3,11 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/features/cart/ui/views/widgets/dismissible_child_widget.dart';
+import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 
 class CartPageListViewItem extends StatelessWidget {
-  const CartPageListViewItem({super.key});
-
+  const CartPageListViewItem({super.key, required this.product});
+  final ProductItemModel product;
   @override
   Widget build(BuildContext context) {
     return Dismissible(
@@ -45,7 +46,9 @@ class CartPageListViewItem extends StatelessWidget {
           ),
         ),
       ),
-      child: const DismissibleChildWidget(),
+      child:  DismissibleChildWidget(
+        product: product,
+      ),
     );
   }
 }
