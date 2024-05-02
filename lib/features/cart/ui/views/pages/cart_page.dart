@@ -9,10 +9,7 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: CartPageAppBar(),
-      body: Padding(
-        padding: EdgeInsets.only(top: 24, left: 16, right: 16),
-        child: CartPageBody(),
-      ),
+      body: CartPageBody(),
     );
   }
 }

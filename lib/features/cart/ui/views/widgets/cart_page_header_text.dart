@@ -8,12 +8,15 @@ class CartPageHeaderText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      'My Cart',
-      style: TextStyle(
-        fontFamily: GoogleFonts.inter().fontFamily,
-        fontSize: 34,
-        fontWeight: FontWeight.w700,
+    return Padding(
+      padding: const EdgeInsets.only(top: 24),
+      child: Text(
+        'My Cart',
+        style: TextStyle(
+          fontFamily: GoogleFonts.inter().fontFamily,
+          fontSize: 34,
+          fontWeight: FontWeight.w700,
+        ),
       ),
     );
   }
