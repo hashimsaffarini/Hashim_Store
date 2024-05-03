@@ -56,18 +56,14 @@ class FavoritesListView extends StatelessWidget {
                                 btnOkColor: AppColors.primaryColor,
                               ).show();
                             } else {
+                              cubit.addToCartFromFavorite(favProducts[index]);
                               AwesomeDialog(
                                 context: context,
                                 dialogType: DialogType.success,
                                 animType: AnimType.bottomSlide,
-                                dismissOnTouchOutside: false,
                                 title: 'Added to cart',
                                 desc: 'Product added to cart successfully',
-                                btnOkOnPress: () {
-                                  cubit.addToCartFromFavorite(
-                                      favProducts[index]);
-                                  cubit.changeFavoriteState(favProducts[index]);
-                                },
+                                btnOkOnPress: () {},
                                 btnOkColor: AppColors.primaryColor,
                               ).show();
                             }
