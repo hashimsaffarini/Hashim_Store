@@ -23,7 +23,7 @@ class AddAndRemoveWidget extends StatelessWidget {
           return CounterWidget(
             product: product,
             cubit: cubit,
-            counter: state.counter,
+            counter: product.counter,
           );
         } else {
           return CounterWidget(

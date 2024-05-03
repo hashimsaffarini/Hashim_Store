@@ -20,12 +20,14 @@ class CartPageListViewItem extends StatelessWidget {
           );
         } else if (state is HomePageLoaded) {
           return Dismissible(
-            key: const ValueKey('cart_item'),
+            key: ValueKey(product.id),
             direction: DismissDirection.horizontal,
             onDismissed: (direction) {
               if (direction == DismissDirection.endToStart) {
                 BlocProvider.of<HomePageCubit>(context)
                     .removeProductFromCart(product);
+                product.counter = 1;
+
                 log('Item dismissed');
               } else if (direction == DismissDirection.startToEnd) {
                 log('Message store');

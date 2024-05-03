@@ -8,17 +8,18 @@ class CartPageCubit extends Cubit<CartPageState> {
 
   int counter = 1;
 
-  Future<void> increment(ProductItemModel product) async {
-    if (counter < product.quantity) {
-      counter++;
-    }
-    emit(QuantityChanged(counter));
+  void increment(ProductItemModel product) {
+    product.incrementCounter();
+    emit(
+        QuantityChanged()); // You may want to pass product-specific data if needed
   }
 
-  Future<void> decrement(ProductItemModel product) async {
-    if (counter > 1) {
-      counter--;
-    }
-    emit(QuantityChanged(counter));
+  void decrement(ProductItemModel product) {
+    product.decrementCounter();
+    emit(QuantityChanged()); // Update to reflect changes
+  }
+
+  void getCartProducts() {
+    emit(QuantityChanged());
   }
 }

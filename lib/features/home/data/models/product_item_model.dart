@@ -10,6 +10,7 @@ class ProductItemModel {
   final int quantity;
   final List<String> colors;
   final List<String> sizes;
+  int counter;
   ProductItemModel({
     required this.id,
     required this.title,
@@ -36,7 +37,19 @@ class ProductItemModel {
       '4XL',
       '5XL',
     ],
+    this.counter = 1,
   });
+  void incrementCounter() {
+    if (counter < quantity) {
+      counter++;
+    }
+  }
+
+  void decrementCounter() {
+    if (counter > 1) {
+      counter--;
+    }
+  }
 }
 
 List<ProductItemModel> dummyCartProducts = [];
