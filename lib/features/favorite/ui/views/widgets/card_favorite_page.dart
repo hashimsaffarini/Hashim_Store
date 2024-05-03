@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/sale_texts.dart';
 
 class CardFavoritePage extends StatelessWidget {
   const CardFavoritePage({
@@ -48,14 +49,16 @@ class CardFavoritePage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 5),
-                    Text(
-                      '₪${product.price}',
-                      style: const TextStyle(
-                        fontSize: 17,
-                        color: AppColors.primaryColor,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
+                    product.sale != 0
+                        ? SaleTexts(product: product)
+                        : Text(
+                            '₪${product.price}',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.primaryColor,
+                            ),
+                          ),
                   ],
                 ),
               ),
