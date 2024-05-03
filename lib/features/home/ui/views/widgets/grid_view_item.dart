@@ -5,6 +5,7 @@ import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/container_gird_view_widget.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/favorite_grid_view_widget.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/sale_grid_view_widget.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/sale_texts.dart';
 
 class GridViewItem extends StatelessWidget {
   const GridViewItem({
@@ -43,14 +44,16 @@ class GridViewItem extends StatelessWidget {
             fontWeight: FontWeight.w500,
           ),
         ),
-        Text(
-          '₪99.99',
-          style: GoogleFonts.inter(
-            fontSize: 17,
-            fontWeight: FontWeight.w700,
-            color: AppColors.primaryColor,
-          ),
-        ),
+        product.sale != 0
+            ? SaleTexts(product: product)
+            : Text(
+                '₪${product.price}',
+                style: GoogleFonts.inter(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.primaryColor,
+                ),
+              ),
       ],
     );
   }
