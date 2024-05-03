@@ -39,7 +39,7 @@ class ProductItemModel {
       '5XL',
     ],
     this.counter = 1,
-    this.sale = 0,
+    this.sale = 25,
   });
   void incrementCounter() {
     if (counter < quantity) {

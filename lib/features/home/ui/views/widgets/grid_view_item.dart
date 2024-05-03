@@ -4,6 +4,7 @@ import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/container_gird_view_widget.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/favorite_grid_view_widget.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/sale_grid_view_widget.dart';
 
 class GridViewItem extends StatelessWidget {
   const GridViewItem({
@@ -27,6 +28,11 @@ class GridViewItem extends StatelessWidget {
             FavoriteGridViewWidget(
               product: product,
             ),
+            product.sale != 0
+                ? SaleGridViewWidget(
+                    product: product,
+                  )
+                : const SizedBox(),
           ],
         ),
         const SizedBox(height: 8),
