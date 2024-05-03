@@ -29,7 +29,7 @@ class SaleTexts extends StatelessWidget {
         ),
         const SizedBox(width: 8),
         Text(
-          '₪${(product.price * product.sale) / 100}',
+          '₪${product.price - (product.price * product.sale) / 100}',
           style: GoogleFonts.inter(
             fontSize: sizeText,
             fontWeight: FontWeight.w700,

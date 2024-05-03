@@ -71,7 +71,7 @@ class CounterWidget extends StatelessWidget {
         ),
         const Spacer(),
         Text(
-          '₪${(product.price * product.sale) / 100}',
+          '₪${product.price - (product.price * product.sale) / 100}',
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w700,
