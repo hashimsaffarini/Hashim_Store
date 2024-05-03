@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
+import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
+
 class CounterWidget extends StatelessWidget {
   const CounterWidget({
     super.key,
@@ -18,6 +21,7 @@ class CounterWidget extends StatelessWidget {
         GestureDetector(
           onTap: () {
             cubit.decrement(product);
+            BlocProvider.of<HomePageCubit>(context).getAllProducts();
           },
           child: Container(
             height: 40,
@@ -47,6 +51,7 @@ class CounterWidget extends StatelessWidget {
         GestureDetector(
           onTap: () {
             cubit.increment(product);
+            BlocProvider.of<HomePageCubit>(context).getAllProducts();
           },
           child: Container(
             height: 40,
@@ -68,7 +73,7 @@ class CounterWidget extends StatelessWidget {
         Text(
           '₪${(product.price * product.sale) / 100}',
           style: const TextStyle(
-             fontSize: 18,
+            fontSize: 18,
             fontWeight: FontWeight.w700,
           ),
         ),
