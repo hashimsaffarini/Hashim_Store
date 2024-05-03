@@ -8,6 +8,7 @@ import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.d
 import 'package:hashim_store/features/home/ui/views/widgets/available_sizes_list_view.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/colors_available_list_view.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/header_details_page.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/sale_texts.dart';
 
 class ProductDetailsContainerChild extends StatelessWidget {
   const ProductDetailsContainerChild({
@@ -28,14 +29,19 @@ class ProductDetailsContainerChild extends StatelessWidget {
             product: product,
           ),
           const SizedBox(height: 4),
-          Text(
-            '₪99.99',
-            style: GoogleFonts.inter(
-              fontSize: 24,
-              fontWeight: FontWeight.w700,
-              color: AppColors.primaryColor,
-            ),
-          ),
+          product.sale != 0
+              ? SaleTexts(
+                  product: product,
+                  sizeText: 24,
+                )
+              : Text(
+                  '₪${product.price}',
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.primaryColor,
+                  ),
+                ),
           const SizedBox(height: 16),
           Text(
             'Description:',

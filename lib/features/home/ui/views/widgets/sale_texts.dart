@@ -7,8 +7,9 @@ class SaleTexts extends StatelessWidget {
   const SaleTexts({
     super.key,
     required this.product,
+    this.sizeText = 16,
   });
-
+  final double sizeText;
   final ProductItemModel product;
 
   @override
@@ -18,7 +19,7 @@ class SaleTexts extends StatelessWidget {
         Text(
           '₪${product.price}',
           style: GoogleFonts.inter(
-            fontSize: 16,
+            fontSize: sizeText,
             fontWeight: FontWeight.w700,
             color: AppColors.greyPrimary,
             decoration: TextDecoration.lineThrough,
@@ -30,7 +31,7 @@ class SaleTexts extends StatelessWidget {
         Text(
           '₪${(product.price * product.sale) / 100}',
           style: GoogleFonts.inter(
-            fontSize: 16,
+            fontSize: sizeText,
             fontWeight: FontWeight.w700,
             color: AppColors.primaryColor,
           ),
