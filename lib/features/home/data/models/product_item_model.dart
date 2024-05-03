@@ -10,6 +10,7 @@ class ProductItemModel {
   final int quantity;
   final List<String> colors;
   final List<String> sizes;
+  final int sale;
   int counter;
   ProductItemModel({
     required this.id,
@@ -38,6 +39,7 @@ class ProductItemModel {
       '5XL',
     ],
     this.counter = 1,
+    this.sale = 0,
   });
   void incrementCounter() {
     if (counter < quantity) {
