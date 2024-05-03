@@ -7,6 +7,7 @@ import 'package:hashim_store/features/favorite/ui/views/widgets/add_to_cart_widg
 import 'package:hashim_store/features/favorite/ui/views/widgets/card_favorite_page.dart';
 import 'package:hashim_store/features/favorite/ui/views/widgets/xmark_widget.dart';
 import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
+import 'package:hashim_store/features/home/ui/views/widgets/sale_grid_view_widget.dart';
 
 class FavoritesListView extends StatelessWidget {
   const FavoritesListView({super.key});
@@ -77,6 +78,11 @@ class FavoritesListView extends StatelessWidget {
                             cubit.changeFavoriteState(favProducts[index]);
                           },
                         ),
+                        favProducts[index].sale != 0
+                            ? SaleGridViewWidget(
+                                product: favProducts[index],
+                              )
+                            : const SizedBox(),
                       ],
                     ),
                   );
