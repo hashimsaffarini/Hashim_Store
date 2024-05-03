@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
+import 'package:hashim_store/features/cart/ui/logic/cart_cubit/cart_page_cubit.dart';
 import 'package:hashim_store/features/cart/ui/views/pages/cart_page.dart';
 import 'package:hashim_store/features/favorite/ui/views/pages/favorite_page.dart';
 import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
@@ -32,10 +33,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
         create: (context) => HomePageCubit()..getAllProducts(),
         child: const FavoritePage(),
       ),
-      BlocProvider(
-        create: (context) => HomePageCubit(),
+      MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => HomePageCubit(),
+          ),
+          BlocProvider(
+            create: (context) => CartPageCubit(),
+          ),
+        ],
         child: const CartPage(),
-      ),
+      )
     ];
   }
 

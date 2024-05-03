@@ -63,7 +63,7 @@ class CartPageListViewItem extends StatelessWidget {
           );
         } else {
           return const Center(
-            child: Text('Error'),
+            child: Text('Error Message'),
           );
         }
       },

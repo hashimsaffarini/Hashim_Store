@@ -87,17 +87,17 @@ class HomePageCubit extends Cubit<HomePageState> {
     }
   }
 
-  Future<void> increment(ProductItemModel product) async {
-    if (product.counterUser < product.quantity) {
-      counter++;
-    }
-    emit(QuantityChanged(counter));
-  }
+  // Future<void> increment(ProductItemModel product) async {
+  //   if (product.counterUser < product.quantity) {
+  //     counter++;
+  //   }
+  //   emit(QuantityChanged(counter));
+  // }
 
-  Future<void> decrement(ProductItemModel product) async {
-    if (product.counterUser > 1) {
-      counter--;
-    }
-    emit(QuantityChanged(counter));
-  }
+  // Future<void> decrement(ProductItemModel product) async {
+  //   if (product.counterUser > 1) {
+  //     counter--;
+  //   }
+  //   emit(QuantityChanged(counter));
+  // }
 }

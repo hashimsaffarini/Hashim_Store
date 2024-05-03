@@ -8,18 +8,16 @@ class ProductItemModel {
   final int price;
   final String category;
   final int quantity;
-  int counterUser = 10;
   final List<String> colors;
   final List<String> sizes;
   ProductItemModel({
-    this.counterUser = 1,
     required this.id,
     required this.title,
     required this.imgUrl,
     required this.description,
     required this.price,
     required this.category,
-    this.quantity = 1,
+    this.quantity = 10,
     this.colors = const [
       '720455',
       '121481',

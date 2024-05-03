@@ -46,7 +46,7 @@ class ListViewCartPage extends StatelessWidget {
           }
         } else {
           return const Center(
-            child: Text('Error'),
+            child: Text('Error Listing Products'),
           );
         }
       },

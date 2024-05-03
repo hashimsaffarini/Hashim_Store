@@ -20,27 +20,9 @@ class _CartPageState extends State<CartPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomePageCubit, HomePageState>(
-      builder: (context, state) {
-        if (state is HomePageLoading) {
-          return const Scaffold(
-            body: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
-        } else if (state is HomePageLoaded) {
-          return const Scaffold(
-            appBar: CartPageAppBar(),
-            body: CartPageBody(),
-          );
-        } else {
-          return const Scaffold(
-            body: Center(
-              child: Text('Error'),
-            ),
-          );
-        }
-      },
+    return const Scaffold(
+      appBar: CartPageAppBar(),
+      body: CartPageBody(),
     );
   }
 }

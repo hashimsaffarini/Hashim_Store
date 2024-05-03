@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
+import 'package:hashim_store/features/cart/ui/logic/cart_cubit/cart_page_cubit.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
-import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
 
 class AddAndRemoveWidget extends StatelessWidget {
   const AddAndRemoveWidget({
@@ -14,11 +14,10 @@ class AddAndRemoveWidget extends StatelessWidget {
   final ProductItemModel product;
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<HomePageCubit>(context);
+    final cubit = BlocProvider.of<CartPageCubit>(context);
 
-    return BlocBuilder<HomePageCubit, HomePageState>(
+    return BlocBuilder<CartPageCubit, CartPageState>(
       bloc: cubit,
-      buildWhen: (previous, current) => current is QuantityChanged,
       builder: (context, state) {
         if (state is QuantityChanged) {
           return CounterWidget(
