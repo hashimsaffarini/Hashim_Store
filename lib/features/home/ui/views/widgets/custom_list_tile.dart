@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:hashim_store/core/utils/url_lancher.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({
@@ -39,9 +39,8 @@ final List<CustomListTile> contactList = [
       color: Colors.blue[800],
     ),
     onTap: () async {
-      launchURL(
-        'https://flutter.dev',
-      );
+      UrlLancher.launchURL(
+          'https://www.facebook.com/boutique.hashim2?paipv=0&eav=AfZl6fZGUiI4Hzqu76HwSMJRr7Ps_BBlhCntkOvDcIQlckN1E0d5Xh1YMAAG3FkGKBs');
     },
   ),
   CustomListTile(
@@ -50,7 +49,9 @@ final List<CustomListTile> contactList = [
       FontAwesomeIcons.instagram,
       color: Colors.pink,
     ),
-    onTap: () {},
+    onTap: () {
+      UrlLancher.launchURL('https://www.instagram.com/boutique.hashim2/');
+    },
   ),
   CustomListTile(
     title: 'WhatsApp',
@@ -58,7 +59,10 @@ final List<CustomListTile> contactList = [
       FontAwesomeIcons.whatsapp,
       color: Colors.green,
     ),
-    onTap: () {},
+    onTap: () {
+      UrlLancher.launchURL(
+          'https://api.whatsapp.com/send/?phone=%2B972599686400&text&type=phone_number&app_absent=0');
+    },
   ),
   CustomListTile(
     title: 'Phone',
@@ -66,7 +70,9 @@ final List<CustomListTile> contactList = [
       FontAwesomeIcons.phone,
       color: Colors.blue,
     ),
-    onTap: () {},
+    onTap: () {
+      UrlLancher.launchPhone('+972599686400');
+    },
   ),
   CustomListTile(
     title: 'Location',
@@ -74,7 +80,10 @@ final List<CustomListTile> contactList = [
       FontAwesomeIcons.locationArrow,
       color: Colors.red,
     ),
-    onTap: () {},
+    onTap: () {
+      UrlLancher.launchURL(
+          'https://www.google.com/maps/dir/32.3026944,35.094528/32.3152905,35.0290596/@32.3152718,35.0291085,21z/data=!4m4!4m3!1m1!4e1!1m0?entry=ttu');
+    },
   ),
 ];
 final List<CustomListTile> registeringList = [
@@ -95,11 +104,3 @@ final List<CustomListTile> registeringList = [
     onTap: () {},
   ),
 ];
-void launchURL(String urlLancher) async {
-  final url = Uri.parse(urlLancher);
-  if (await canLaunchUrl(url)) {
-    await launchUrl(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
