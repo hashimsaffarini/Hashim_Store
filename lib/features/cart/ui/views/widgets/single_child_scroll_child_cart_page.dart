@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
+import 'package:hashim_store/core/utils/url_lancher.dart';
 import 'package:hashim_store/core/widgets/apple_widget.dart';
 import 'package:hashim_store/core/widgets/custom_button.dart';
 import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
@@ -108,7 +109,9 @@ class SingleChildScrollChildCartPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 CustomButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    UrlLauncher.launchMessenger();
+                  },
                   borderRadius: 32,
                   child: const Text(
                     'Message The Store',

@@ -39,7 +39,7 @@ final List<CustomListTile> contactList = [
       color: Colors.blue[800],
     ),
     onTap: () async {
-      UrlLancher.launchURL(
+      UrlLauncher.launchURL(
           'https://www.facebook.com/boutique.hashim2?paipv=0&eav=AfZl6fZGUiI4Hzqu76HwSMJRr7Ps_BBlhCntkOvDcIQlckN1E0d5Xh1YMAAG3FkGKBs');
     },
   ),
@@ -50,7 +50,7 @@ final List<CustomListTile> contactList = [
       color: Colors.pink,
     ),
     onTap: () {
-      UrlLancher.launchURL('https://www.instagram.com/boutique.hashim2/');
+      UrlLauncher.launchURL('https://www.instagram.com/boutique.hashim2/');
     },
   ),
   CustomListTile(
@@ -60,7 +60,7 @@ final List<CustomListTile> contactList = [
       color: Colors.green,
     ),
     onTap: () {
-      UrlLancher.launchURL(
+      UrlLauncher.launchURL(
           'https://api.whatsapp.com/send/?phone=%2B972599686400&text&type=phone_number&app_absent=0');
     },
   ),
@@ -71,7 +71,7 @@ final List<CustomListTile> contactList = [
       color: Colors.blue,
     ),
     onTap: () {
-      UrlLancher.launchPhone('+972599686400');
+      UrlLauncher.launchPhone('+972599686400');
     },
   ),
   CustomListTile(
@@ -81,7 +81,7 @@ final List<CustomListTile> contactList = [
       color: Colors.red,
     ),
     onTap: () {
-      UrlLancher.launchURL(
+      UrlLauncher.launchURL(
           'https://www.google.com/maps/dir/32.3026944,35.094528/32.3152905,35.0290596/@32.3152718,35.0291085,21z/data=!4m4!4m3!1m1!4e1!1m0?entry=ttu');
     },
   ),
