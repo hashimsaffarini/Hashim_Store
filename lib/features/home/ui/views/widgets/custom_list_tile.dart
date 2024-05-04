@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({
@@ -37,7 +38,11 @@ final List<CustomListTile> contactList = [
       FontAwesomeIcons.facebook,
       color: Colors.blue[800],
     ),
-    onTap: () {},
+    onTap: () async {
+      launchURL(
+        'https://flutter.dev',
+      );
+    },
   ),
   CustomListTile(
     title: 'Instagram',
@@ -90,3 +95,11 @@ final List<CustomListTile> registeringList = [
     onTap: () {},
   ),
 ];
+void launchURL(String urlLancher) async {
+  final url = Uri.parse(urlLancher);
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
