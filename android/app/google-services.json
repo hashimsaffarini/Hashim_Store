@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "380373327086",
+    "project_id": "hashim-store",
+    "storage_bucket": "hashim-store.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380373327086:android:a78124e0411ab5904067ff",
+        "android_client_info": {
+          "package_name": "com.example.hashim_store"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEjfUmjz9DrU8A1G0zAve6tIbx5S61Bc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
