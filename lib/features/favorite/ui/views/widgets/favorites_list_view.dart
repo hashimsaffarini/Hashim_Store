@@ -87,18 +87,21 @@ class FavoritesListView extends StatelessWidget {
               ),
             );
           }
-        } else if (state is HomePageLoading) {
+        }
+        else if (state is HomePageLoading) {
           return const SliverFillRemaining(
             child: Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator.adaptive(),
             ),
           );
         }
-        return const SliverFillRemaining(
-          child: Center(
-            child: Text('Error'),
-          ),
-        );
+         else {
+          return const SliverFillRemaining(
+            child: Center(
+              child: Text('Error'),
+            ),
+          );
+        }
       },
     );
   }

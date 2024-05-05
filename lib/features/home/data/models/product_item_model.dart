@@ -1,3 +1,5 @@
+import 'package:hashim_store/core/utils/assets.dart';
+
 class ProductItemModel {
   final String id;
   final String title;
@@ -39,7 +41,15 @@ class ProductItemModel {
     this.counter = 1,
     this.sale = 25,
   });
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProductItemModel &&
+          runtimeType == other.runtimeType &&
+          id == other.id;
 
+  @override
+  int get hashCode => id.hashCode;
   void incrementCounter() {
     if (counter < quantity) {
       counter++;
@@ -72,87 +82,85 @@ class ProductItemModel {
       Map<String, dynamic> map, String documentId) {
     return ProductItemModel(
       id: documentId,
-      title: map['title'] as String,
-      imgUrl: map['imgUrl'] as String,
-      description: map['description'] as String,
-      price: map['price'] as int,
-      category: map['category'] as String,
-      quantity: map['quantity'] as int,
-      // Use `.cast<String>()` to safely cast the dynamic list to a list of strings
+      title: map['title'] ?? '', // Default empty string if null
+      imgUrl: map['imgUrl'] ?? '', // Default empty string if null
+      description: map['description'] ?? '',
+      price: map['price'] as int? ?? 0, // Default to 0 if null
+      category: map['category'] ?? '',
+      quantity: map['quantity'] as int? ?? 0, // Default to 0 if null
       colors: List<String>.from(map['colors'] ?? []).cast<String>(),
       sizes: List<String>.from(map['sizes'] ?? []).cast<String>(),
-      sale: map['sale'] as int,
-      counter: (map['counter'] ?? 1)
-          as int, // Provide a default value in case it's null
+      sale: map['sale'] as int? ?? 0, // Default to 0 if null
+      counter: map['counter'] as int? ?? 1, // Default to 1 if null
     );
   }
 }
 
 List<ProductItemModel> dummyCartProducts = [];
 List<ProductItemModel> dummyFavouriteProducts = [];
-// final List<ProductItemModel> dummyProducts = [
-//   ProductItemModel(
-//     title: 'Product Name',
-//     imgUrl: AssetsData.test,
-//     price: 99,
-//     category: 'Man',
-//     description: 'This is a description of the product',
-//     id: '1',
-//   ),
-//   ProductItemModel(
-//     title: 'Product Name',
-//     imgUrl: AssetsData.test2,
-//     price: 99,
-//     category: 'Man',
-//     description: 'This is a description of the product',
-//     id: '2',
-//   ),
-//   ProductItemModel(
-//     title: 'Product Name',
-//     imgUrl: AssetsData.test3,
-//     price: 99,
-//     category: 'Woman',
-//     description: 'This is a description of the product',
-//     id: '3',
-//   ),
-//   ProductItemModel(
-//     title: 'Product Name',
-//     imgUrl: AssetsData.test4,
-//     price: 99,
-//     category: 'Woman',
-//     description: 'This is a description of the product',
-//     id: '4',
-//   ),
-//   ProductItemModel(
-//     title: 'Product Name',
-//     imgUrl: AssetsData.test5,
-//     price: 99,
-//     category: 'Teens',
-//     description: 'This is a description of the product',
-//     id: '5',
-//   ),
-//   ProductItemModel(
-//     title: 'Product Name',
-//     imgUrl: AssetsData.test6,
-//     price: 99,
-//     category: 'Teens',
-//     description: 'This is a description of the product',
-//     id: '6',
-//   ),
-//   ProductItemModel(
-//     title: 'Product Name',
-//     imgUrl: AssetsData.test7,
-//     price: 99,
-//     category: 'Baby',
-//     description: 'This is a description of the product',
-//     id: '7',
-//   ),
-//   ProductItemModel(
-//     title: 'Product Name',
-//     imgUrl: AssetsData.test8,
-//     price: 99,
-//     category: 'Baby',
-//     description: 'This is a description of the product',
-//     id: '8',
-//   ),
-// ];
+final List<ProductItemModel> dummyProducts = [
+  ProductItemModel(
+    title: 'Product Name',
+    imgUrl: AssetsData.test,
+    price: 99,
+    category: 'Man',
+    description: 'This is a description of the product',
+    id: '1',
+  ),
+  ProductItemModel(
+    title: 'Product Name',
+    imgUrl: AssetsData.test2,
+    price: 99,
+    category: 'Man',
+    description: 'This is a description of the product',
+    id: '2',
+  ),
+  ProductItemModel(
+    title: 'Product Name',
+    imgUrl: AssetsData.test3,
+    price: 99,
+    category: 'Woman',
+    description: 'This is a description of the product',
+    id: '3',
+  ),
+  ProductItemModel(
+    title: 'Product Name',
+    imgUrl: AssetsData.test4,
+    price: 99,
+    category: 'Woman',
+    description: 'This is a description of the product',
+    id: '4',
+  ),
+  ProductItemModel(
+    title: 'Product Name',
+    imgUrl: AssetsData.test5,
+    price: 99,
+    category: 'Teens',
+    description: 'This is a description of the product',
+    id: '5',
+  ),
+  ProductItemModel(
+    title: 'Product Name',
+    imgUrl: AssetsData.test6,
+    price: 99,
+    category: 'Teens',
+    description: 'This is a description of the product',
+    id: '6',
+  ),
+  ProductItemModel(
+    title: 'Product Name',
+    imgUrl: AssetsData.test7,
+    price: 99,
+    category: 'Baby',
+    description: 'This is a description of the product',
+    id: '7',
+  ),
+  ProductItemModel(
+    title: 'Product Name',
+    imgUrl: AssetsData.test8,
+    price: 99,
+    category: 'Baby',
+    description: 'This is a description of the product',
+    id: '8',
+  ),
+];

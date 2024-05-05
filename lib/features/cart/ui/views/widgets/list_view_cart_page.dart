@@ -13,11 +13,7 @@ class ListViewCartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomePageCubit, HomePageState>(
       builder: (context, state) {
-        if (state is HomePageLoading) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        } else if (state is HomePageLoaded) {
+        if (state is HomePageLoaded) {
           final products = state.cartProducts;
           if (products.isEmpty) {
             return const Padding(
@@ -44,6 +40,10 @@ class ListViewCartPage extends StatelessWidget {
               },
             );
           }
+        } else if (state is HomePageLoading) {
+          return const Center(
+            child: CircularProgressIndicator.adaptive(),
+          );
         } else {
           return const Center(
             child: Text('Error Listing Products'),

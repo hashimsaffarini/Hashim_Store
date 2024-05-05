@@ -12,15 +12,17 @@ class HomePageCubit extends Cubit<HomePageState> {
   String? selectedCategory;
   static List<ProductItemModel> cartProductsCubit = [];
   int counter = 0;
-  Future<void> changeFavoriteState(ProductItemModel product) async {
-    emit(HomePageLoading());
+  void changeFavoriteState(ProductItemModel product) async {
     try {
       final List<ProductItemModel> products = await homeServices.getProducts();
-      if (dummyFavouriteProducts.contains(product)) {
-        dummyFavouriteProducts.remove(product);
+      int index = dummyFavouriteProducts
+          .indexWhere((element) => element.id == product.id);
+      if (index != -1) {
+        dummyFavouriteProducts.removeAt(index);
       } else {
         dummyFavouriteProducts.add(product);
       }
+      print(dummyFavouriteProducts.length);
       emit(
         HomePageLoaded(products, dummyFavouriteProducts, dummyCartProducts),
       );
@@ -32,6 +34,17 @@ class HomePageCubit extends Cubit<HomePageState> {
 
   void getAllProducts() async {
     emit(HomePageLoading());
+    try {
+      final List<ProductItemModel> products = await homeServices.getProducts();
+
+      emit(HomePageLoaded(products, dummyFavouriteProducts, dummyCartProducts));
+    } catch (e) {
+      emit(HomePageError("Failed to fetch products"));
+      log('Error fetching products: $e');
+    }
+  }
+
+  void getProductsForCart() async {
     try {
       final List<ProductItemModel> products = await homeServices.getProducts();
 
@@ -59,7 +72,6 @@ class HomePageCubit extends Cubit<HomePageState> {
 
   Future<void> addToCart(ProductItemModel product) async {
     try {
-      emit(AddingToCart());
       dummyCartProducts.add(product);
       cartProductsCubit.add(product);
       emit(AddedToCart(product));
@@ -70,7 +82,6 @@ class HomePageCubit extends Cubit<HomePageState> {
   }
 
   Future<void> removeProductFromCart(ProductItemModel product) async {
-    emit(HomePageLoading());
     try {
       final List<ProductItemModel> products = await homeServices.getProducts();
       dummyCartProducts.remove(product);
@@ -83,7 +94,6 @@ class HomePageCubit extends Cubit<HomePageState> {
   }
 
   Future<void> addToCartFromFavorite(ProductItemModel product) async {
-    emit(HomePageLoading());
     try {
       final List<ProductItemModel> products = await homeServices.getProducts();
       dummyCartProducts.add(product);

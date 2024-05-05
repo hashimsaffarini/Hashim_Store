@@ -7,8 +7,8 @@ final class HomePageInitial extends HomePageState {}
 final class HomePageLoading extends HomePageState {}
 
 final class HomePageLoaded extends HomePageState {
-  final List<ProductItemModel> favProducts;
   final List<ProductItemModel> products;
+  final List<ProductItemModel> favProducts;
   final List<ProductItemModel> cartProducts;
   HomePageLoaded(this.products, this.favProducts, this.cartProducts);
 }

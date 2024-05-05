@@ -21,7 +21,7 @@ class CounterWidget extends StatelessWidget {
         GestureDetector(
           onTap: () {
             cubit.decrement(product);
-            BlocProvider.of<HomePageCubit>(context).getAllProducts();
+            BlocProvider.of<HomePageCubit>(context).getProductsForCart();
           },
           child: Container(
             height: 40,
@@ -51,7 +51,7 @@ class CounterWidget extends StatelessWidget {
         GestureDetector(
           onTap: () {
             cubit.increment(product);
-            BlocProvider.of<HomePageCubit>(context).getAllProducts();
+            BlocProvider.of<HomePageCubit>(context).getProductsForCart();
           },
           child: Container(
             height: 40,

@@ -5,6 +5,8 @@ import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 abstract class HomeServices {
   Future<List<ProductItemModel>> getProducts();
   Future<void> addProduct(ProductItemModel product);
+  Future<List<ProductItemModel>> getFavProducts();
+  Future<void> addFavProduct(ProductItemModel product);
 }
 
 class HomeServicesImpl implements HomeServices {
@@ -26,4 +28,21 @@ class HomeServicesImpl implements HomeServices {
       data: product.toMap(),
     );
   }
+
+  @override
+  Future<void> addFavProduct(ProductItemModel product) async =>
+      await firestoreService.setData(
+        path: ApiPaths.favoriteItem(product.id),
+        data: product.toMap(),
+      );
+
+  @override
+  Future<List<ProductItemModel>> getFavProducts() async =>
+      await firestoreService.getCollection<ProductItemModel>(
+        path: ApiPaths.favorite(),
+        builder: (data, documentId) => ProductItemModel.fromMap(
+          data,
+          documentId,
+        ),
+      );
 }
