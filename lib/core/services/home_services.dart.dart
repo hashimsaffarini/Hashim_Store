@@ -4,6 +4,7 @@ import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 
 abstract class HomeServices {
   Future<List<ProductItemModel>> getProducts();
+  Future<void> addProduct(ProductItemModel product);
 }
 
 class HomeServicesImpl implements HomeServices {
@@ -18,4 +19,11 @@ class HomeServicesImpl implements HomeServices {
           documentId,
         ),
       );
+  @override
+  Future<void> addProduct(ProductItemModel product) async {
+    await firestoreService.setData(
+      path: ApiPaths.productItem(product.id),
+      data: product.toMap(),
+    );
+  }
 }
