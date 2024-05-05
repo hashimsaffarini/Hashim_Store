@@ -71,6 +71,7 @@ class HomePageCubit extends Cubit<HomePageState> {
   }
 
   Future<void> addToCart(ProductItemModel product) async {
+    emit(AddingToCart());
     try {
       dummyCartProducts.add(product);
       cartProductsCubit.add(product);
