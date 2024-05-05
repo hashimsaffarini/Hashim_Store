@@ -70,9 +70,10 @@ class ProductItemModel {
     };
   }
 
-  factory ProductItemModel.fromMap(Map<String, dynamic> map) {
+  factory ProductItemModel.fromMap(
+      Map<String, dynamic> map, String documentId) {
     return ProductItemModel(
-      id: map['id'] as String,
+      id: documentId,
       title: map['title'] as String,
       imgUrl: map['imgUrl'] as String,
       description: map['description'] as String,
