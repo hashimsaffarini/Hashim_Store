@@ -60,7 +60,6 @@ class HomePageCubit extends Cubit<HomePageState> {
   Future<void> addToCart(ProductItemModel product) async {
     try {
       emit(AddingToCart());
-      await Future.delayed(const Duration(seconds: 2));
       dummyCartProducts.add(product);
       cartProductsCubit.add(product);
       emit(AddedToCart(product));
