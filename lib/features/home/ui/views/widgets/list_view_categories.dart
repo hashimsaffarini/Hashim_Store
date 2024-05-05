@@ -30,7 +30,7 @@ class ListViewCategories extends StatelessWidget {
                     } else {
                       cubit.getProductsByCategory(
                           categoriesList[index].category);
-                          cubit.selectedCategory = categoriesList[index].category;
+                      cubit.selectedCategory = categoriesList[index].category;
                     }
                   },
                   child: categoriesList[index],
