@@ -80,10 +80,12 @@ class ProductItemModel {
       price: map['price'] as int,
       category: map['category'] as String,
       quantity: map['quantity'] as int,
-      colors: List<String>.from((map['colors'] as List<String>)),
-      sizes: List<String>.from((map['sizes'] as List<String>)),
+      // Use `.cast<String>()` to safely cast the dynamic list to a list of strings
+      colors: List<String>.from(map['colors'] ?? []).cast<String>(),
+      sizes: List<String>.from(map['sizes'] ?? []).cast<String>(),
       sale: map['sale'] as int,
-      counter: map['counter'] as int,
+      counter: (map['counter'] ?? 1)
+          as int, // Provide a default value in case it's null
     );
   }
 }
