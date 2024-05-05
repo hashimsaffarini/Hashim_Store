@@ -41,6 +41,7 @@ class ProductItemModel {
     this.counter = 1,
     this.sale = 25,
   });
+
   void incrementCounter() {
     if (counter < quantity) {
       counter++;
@@ -51,6 +52,38 @@ class ProductItemModel {
     if (counter > 1) {
       counter--;
     }
+  }
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'id': id,
+      'title': title,
+      'imgUrl': imgUrl,
+      'description': description,
+      'price': price,
+      'category': category,
+      'quantity': quantity,
+      'colors': colors,
+      'sizes': sizes,
+      'sale': sale,
+      'counter': counter,
+    };
+  }
+
+  factory ProductItemModel.fromMap(Map<String, dynamic> map) {
+    return ProductItemModel(
+      id: map['id'] as String,
+      title: map['title'] as String,
+      imgUrl: map['imgUrl'] as String,
+      description: map['description'] as String,
+      price: map['price'] as int,
+      category: map['category'] as String,
+      quantity: map['quantity'] as int,
+      colors: List<String>.from((map['colors'] as List<String>)),
+      sizes: List<String>.from((map['sizes'] as List<String>)),
+      sale: map['sale'] as int,
+      counter: map['counter'] as int,
+    );
   }
 }
 
