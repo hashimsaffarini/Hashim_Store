@@ -1,5 +1,3 @@
-import 'package:hashim_store/core/utils/assets.dart';
-
 class ProductItemModel {
   final String id;
   final String title;
