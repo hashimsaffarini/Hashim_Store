@@ -20,7 +20,10 @@ class SingleChildScrollChildCartPage extends StatelessWidget {
         builder: (context, state) {
           if (state is HomePageLoading) {
             return const Center(
-              child: CircularProgressIndicator.adaptive(),
+              child: Padding(
+                padding: EdgeInsets.only(top: 50),
+                child: CircularProgressIndicator.adaptive(),
+              ),
             );
           } else if (state is HomePageLoaded) {
             final products = state.cartProducts;

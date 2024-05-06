@@ -42,7 +42,10 @@ class ListViewCartPage extends StatelessWidget {
           }
         } else if (state is HomePageLoading) {
           return const Center(
-            child: CircularProgressIndicator.adaptive(),
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 250),
+              child: CircularProgressIndicator.adaptive(),
+            ),
           );
         } else {
           return const Center(
