@@ -7,6 +7,7 @@ abstract class HomeServices {
   Future<void> addProduct(ProductItemModel product);
   Future<List<ProductItemModel>> getFavProducts();
   Future<void> addFavProduct(ProductItemModel product);
+  Future<void> removeFavProduct(ProductItemModel product);
 }
 
 class HomeServicesImpl implements HomeServices {
@@ -44,5 +45,10 @@ class HomeServicesImpl implements HomeServices {
           data,
           documentId,
         ),
+      );
+  @override
+  Future<void> removeFavProduct(ProductItemModel product) async =>
+      await firestoreService.deleteData(
+        path: ApiPaths.favoriteItem(product.id),
       );
 }
