@@ -3,12 +3,20 @@ import 'package:go_router/go_router.dart';
 import 'package:hashim_store/core/widgets/custom_nav_bar.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 import 'package:hashim_store/features/home/ui/views/pages/product_details_page.dart';
+import 'package:hashim_store/features/splash/ui/views/pages/main_splash_page.dart';
 
 abstract class AppRouter {
-  static const navBar = '/';
+  static const mainSplashPage = '/';
+  static const navBar = '/navBar';
   static const productDetailsPage = '/productDetailsPpage';
   static final router = GoRouter(
     routes: [
+      GoRoute(
+        path: mainSplashPage,
+        pageBuilder: (context, state) => const MaterialPage(
+          child: MainSplashPage(),
+        ),
+      ),
       GoRoute(
         path: navBar,
         pageBuilder: (context, state) => const MaterialPage(
