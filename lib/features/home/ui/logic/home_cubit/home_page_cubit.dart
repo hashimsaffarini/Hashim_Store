@@ -17,6 +17,8 @@ class HomePageCubit extends Cubit<HomePageState> {
       final List<ProductItemModel> products = await homeServices.getProducts();
       final List<ProductItemModel> favProducts =
           await homeServices.getFavProducts();
+      final List<ProductItemModel> cartProducts =
+          await homeServices.getCartProducts();
       int index = favProducts.indexWhere((element) => element.id == product.id);
       if (index != -1) {
         homeServices.removeFavProduct(product);
@@ -26,7 +28,7 @@ class HomePageCubit extends Cubit<HomePageState> {
         favProducts.add(product);
       }
       emit(
-        HomePageLoaded(products, favProducts, dummyCartProducts),
+        HomePageLoaded(products, favProducts, cartProducts),
       );
     } catch (e) {
       emit(HomePageError("Failed to fetch products"));
@@ -40,7 +42,9 @@ class HomePageCubit extends Cubit<HomePageState> {
       final List<ProductItemModel> products = await homeServices.getProducts();
       final List<ProductItemModel> favProducts =
           await homeServices.getFavProducts();
-      emit(HomePageLoaded(products, favProducts, dummyCartProducts));
+      final List<ProductItemModel> cartProducts =
+          await homeServices.getCartProducts();
+      emit(HomePageLoaded(products, favProducts, cartProducts));
     } catch (e) {
       emit(HomePageError("Failed to fetch products"));
       log('Error fetching products: $e');
@@ -52,7 +56,9 @@ class HomePageCubit extends Cubit<HomePageState> {
       final List<ProductItemModel> products = await homeServices.getProducts();
       final List<ProductItemModel> favProducts =
           await homeServices.getFavProducts();
-      emit(HomePageLoaded(products, favProducts, dummyCartProducts));
+      final List<ProductItemModel> cartProducts =
+          await homeServices.getCartProducts();
+      emit(HomePageLoaded(products, favProducts, cartProducts));
     } catch (e) {
       emit(HomePageError("Failed to fetch products"));
       log('Error fetching products: $e');
@@ -67,8 +73,9 @@ class HomePageCubit extends Cubit<HomePageState> {
           products.where((element) => element.category == category).toList();
       final List<ProductItemModel> favProducts =
           await homeServices.getFavProducts();
-
-      emit(HomePageLoaded(filteredProducts, favProducts, dummyCartProducts));
+      final List<ProductItemModel> cartProducts =
+          await homeServices.getCartProducts();
+      emit(HomePageLoaded(filteredProducts, favProducts, cartProducts));
     } catch (e) {
       emit(HomePageError("Failed to fetch products"));
       log('Error fetching products: $e');
@@ -78,8 +85,11 @@ class HomePageCubit extends Cubit<HomePageState> {
   Future<void> addToCart(ProductItemModel product) async {
     emit(AddingToCart());
     try {
-      dummyCartProducts.add(product);
+      final List<ProductItemModel> cartProducts =
+          await homeServices.getCartProducts();
+      cartProducts.add(product);
       cartProductsCubit.add(product);
+      homeServices.addProductToCart(product);
       emit(AddedToCart(product));
     } catch (e) {
       emit(AddToCartError("Failed to add to cart"));
@@ -92,9 +102,12 @@ class HomePageCubit extends Cubit<HomePageState> {
       final List<ProductItemModel> products = await homeServices.getProducts();
       final List<ProductItemModel> favProducts =
           await homeServices.getFavProducts();
-      dummyCartProducts.remove(product);
+      final List<ProductItemModel> cartProducts =
+          await homeServices.getCartProducts();
+      cartProducts.remove(product);
       cartProductsCubit.remove(product);
-      emit(HomePageLoaded(products, favProducts, dummyCartProducts));
+      homeServices.removeProductFromCart(product);
+      emit(HomePageLoaded(products, favProducts, cartProducts));
     } catch (e) {
       emit(HomePageError("Failed to fetch products"));
       log('Error fetching products: $e');
@@ -106,9 +119,12 @@ class HomePageCubit extends Cubit<HomePageState> {
       final List<ProductItemModel> products = await homeServices.getProducts();
       final List<ProductItemModel> favProducts =
           await homeServices.getFavProducts();
-      dummyCartProducts.add(product);
+      final List<ProductItemModel> cartProducts =
+          await homeServices.getCartProducts();
+      cartProducts.add(product);
       cartProductsCubit.add(product);
-      emit(HomePageLoaded(products, favProducts, dummyCartProducts));
+      homeServices.addProductToCart(product);
+      emit(HomePageLoaded(products, favProducts, cartProducts));
     } catch (e) {
       emit(HomePageError("Failed to fetch products"));
       log('Error fetching products: $e');

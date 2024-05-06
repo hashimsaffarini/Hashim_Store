@@ -10,7 +10,7 @@ abstract class HomeServices {
   Future<void> removeFavProduct(ProductItemModel product);
   Future<void> addProductToCart(ProductItemModel product);
   Future<void> removeProductFromCart(ProductItemModel product);
-  Future<void> getCartProduct(ProductItemModel product);
+  Future<List<ProductItemModel>> getCartProducts();
 }
 
 class HomeServicesImpl implements HomeServices {
@@ -69,7 +69,7 @@ class HomeServicesImpl implements HomeServices {
       );
 
   @override
-  Future<void> getCartProduct(ProductItemModel product) async =>
+  Future<List<ProductItemModel>> getCartProducts() async =>
       await firestoreService.getCollection(
         path: ApiPaths.cart(),
         builder: (data, documentId) => ProductItemModel.fromMap(

@@ -50,7 +50,10 @@ class _GriveViewCategoriesItemsState extends State<GriveViewCategoriesItems> {
                             AppRouter.productDetailsPage,
                             extra: state.products[index],
                           )
-                          .then((value) => setState(() {}));
+                          .then((value) => setState(() {
+                            BlocProvider.of<HomePageCubit>(context)
+                                .getAllProducts();
+                          }));
                     },
                     child: GridViewItem(
                       product: state.products[index],
