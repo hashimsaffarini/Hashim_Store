@@ -19,7 +19,7 @@ class _MainSplashPageState extends State<MainSplashPage>
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: const Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 1400),
       vsync: this,
     );
     _animation = CurvedAnimation(
@@ -52,7 +52,7 @@ class _MainSplashPageState extends State<MainSplashPage>
             child: FadeTransition(
               opacity: _animation!,
               child: Image.asset(
-                'assets/images/g.png',
+                'assets/images/gg.png',
                 fit: BoxFit.cover,
               ),
             ),
