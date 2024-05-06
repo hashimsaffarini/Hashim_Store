@@ -3,14 +3,14 @@ import 'package:go_router/go_router.dart';
 import 'package:hashim_store/core/utils/app_router.dart';
 import 'package:hashim_store/features/cart/ui/views/widgets/cart_page_app_bar.dart';
 
-class MainSplashPage extends StatefulWidget {
-  const MainSplashPage({super.key});
+class BoardingPage extends StatefulWidget {
+  const BoardingPage({super.key});
 
   @override
-  State<MainSplashPage> createState() => _MainSplashPageState();
+  State<BoardingPage> createState() => _BoardingPageState();
 }
 
-class _MainSplashPageState extends State<MainSplashPage>
+class _BoardingPageState extends State<BoardingPage>
     with SingleTickerProviderStateMixin {
   AnimationController? _animationController;
   Animation<double>? _animation;
