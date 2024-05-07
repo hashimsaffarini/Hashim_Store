@@ -7,7 +7,7 @@ import 'package:hashim_store/features/home/ui/views/pages/product_details_page.d
 //import 'package:hashim_store/features/boarding/ui/views/pages/boarding_page.dart';
 
 abstract class AppRouter {
-  //static const mainSplashPage = '/';
+  static const boardingPage = '/';
   static const navBar = '/navBar';
   static const productDetailsPage = '/productDetailsPpage';
   static const signIn = '/';
