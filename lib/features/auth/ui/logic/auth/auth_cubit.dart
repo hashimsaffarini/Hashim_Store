@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hashim_store/core/services/auth_services.dart';
@@ -24,7 +26,8 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  Future<void> signUpWithEmailAndPassword(String email, String password,String name) async {
+  Future<void> signUpWithEmailAndPassword(
+      String email, String password, String name) async {
     emit(AuthLoading());
     try {
       final result =
@@ -32,7 +35,7 @@ class AuthCubit extends Cubit<AuthState> {
       if (result) {
         emit(AuthSuccess());
       } else {
-        emit(AuthFailure('Failed to sign up'));
+        emit(AuthFailure(e.toString()));
       }
     } catch (e) {
       emit(AuthFailure(e.toString()));
