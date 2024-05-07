@@ -17,7 +17,10 @@ class SignInBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SignInHeader(),
+            const SignHeaderWidget(
+              header: 'Sign In',
+              subHeader: 'Welcome back, you\'ve been missed!',
+            ),
             const SizedBox(height: 60),
             const SignInForm(),
             const SizedBox(height: 46),

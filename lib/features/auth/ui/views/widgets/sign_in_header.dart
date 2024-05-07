@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SignInHeader extends StatelessWidget {
-  const SignInHeader({
+class SignHeaderWidget extends StatelessWidget {
+  const SignHeaderWidget({
     super.key,
+    required this.header,
+    required this.subHeader,
   });
-
+  final String header;
+  final String subHeader;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -14,7 +17,7 @@ class SignInHeader extends StatelessWidget {
         Column(
           children: [
             Text(
-              'Sign In',
+              header,
               style: GoogleFonts.interTight(
                 fontSize: 36,
                 fontWeight: FontWeight.w600,
@@ -22,7 +25,7 @@ class SignInHeader extends StatelessWidget {
             ),
             const SizedBox(height: 6),
             Text(
-              'Welcome back, you\'ve been missed!',
+              subHeader,
               style: GoogleFonts.interTight(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
