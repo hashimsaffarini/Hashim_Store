@@ -4,7 +4,7 @@ String? validatePassword(String value) {
   if (regExp.hasMatch(value)) {
     return null;
   } else {
-    return 'Password must be at least 6 characters long and include at least one number';
+    return 'Password must be at least 6 characters and contain at least one number';
   }
 }
 
