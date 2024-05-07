@@ -12,6 +12,7 @@ class HomePageCubit extends Cubit<HomePageState> {
   String? selectedCategory;
   static List<ProductItemModel> cartProductsCubit = [];
   int counter = 0;
+  static bool openAppFirstTime = false;
   void changeFavoriteState(ProductItemModel product) async {
     try {
       final List<ProductItemModel> products = await homeServices.getProducts();
