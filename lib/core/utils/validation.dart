@@ -1,16 +1,15 @@
 String? validatePassword(String value) {
-  String pattern =
-      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+  String pattern = r'^(?=.*[0-9]).{6,}$';
   RegExp regExp = RegExp(pattern);
   if (regExp.hasMatch(value)) {
     return null;
   } else {
-    return 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character';
+    return 'Password must be at least 6 characters long and include at least one number';
   }
 }
 
 String? validateEmail(String value) {
-  String pattern = r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$';
+  String pattern = r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$';
   RegExp regExp = RegExp(pattern);
   if (regExp.hasMatch(value)) {
     return null;

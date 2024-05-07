@@ -4,7 +4,8 @@ import 'package:hashim_store/core/utils/api_paths.dart';
 
 abstract class AuthServices {
   Future<bool> signInWithEmailAndPassword(String email, String password);
-  Future<bool> signUpWithEmailAndPassword(String email, String password);
+  Future<bool> signUpWithEmailAndPassword(
+      String email, String password, String name);
   Future<void> signOut();
   Future<User?> currentUser();
 }
@@ -32,7 +33,8 @@ class AuthServicesImpl implements AuthServices {
   }
 
   @override
-  Future<bool> signUpWithEmailAndPassword(String email, String password) async {
+  Future<bool> signUpWithEmailAndPassword(
+      String email, String password, String name) async {
     final userCredential = await firebaseAuth.createUserWithEmailAndPassword(
       email: email,
       password: password,
@@ -42,7 +44,7 @@ class AuthServicesImpl implements AuthServices {
       await firestoreServices.setData(path: ApiPaths.user(user.uid), data: {
         'uid': user.uid,
         'email': user.email,
-        'name': user.displayName,
+        'name': name,
         'phone': user.phoneNumber,
         'photoUrl': user.photoURL,
       });

@@ -26,6 +26,7 @@ class _SignUpFormState extends State<SignUpForm> {
       await BlocProvider.of<AuthCubit>(context).signUpWithEmailAndPassword(
         _emailController.text,
         _passwordController.text,
+        _userNameController.text,
       );
     }
   }
