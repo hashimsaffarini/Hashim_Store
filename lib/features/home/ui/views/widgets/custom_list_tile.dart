@@ -86,21 +86,3 @@ final List<CustomListTile> contactList = [
     },
   ),
 ];
-final List<CustomListTile> registeringList = [
-  CustomListTile(
-    title: 'Sign In',
-    icon: const Icon(
-      Icons.login,
-      color: Colors.blue,
-    ),
-    onTap: () {},
-  ),
-  CustomListTile(
-    title: 'Sign Up',
-    icon: const Icon(
-      Icons.person_add,
-      color: Colors.green,
-    ),
-    onTap: () {},
-  ),
-];

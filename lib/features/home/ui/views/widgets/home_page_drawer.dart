@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hashim_store/core/utils/app_router.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/custom_list_tile.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/drawer_header.dart';
 
@@ -45,7 +47,34 @@ class HomePageDrawer extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          for (var item in registeringList) item,
+          CustomListTile(
+            title: 'Sign In',
+            icon: const Icon(
+              Icons.login,
+              color: Colors.blue,
+            ),
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.signIn);
+            },
+          ),
+          CustomListTile(
+            title: 'Sign Up',
+            icon: const Icon(
+              Icons.person_add,
+              color: Colors.green,
+            ),
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.signUp);
+            },
+          ),
+          CustomListTile(
+            title: 'Log Out',
+            icon: const Icon(
+              Icons.logout,
+              color: Colors.red,
+            ),
+            onTap: () {},
+          ),
         ],
       ),
     );
