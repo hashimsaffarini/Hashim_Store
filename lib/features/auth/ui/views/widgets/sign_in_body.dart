@@ -33,11 +33,11 @@ class SignInBody extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 36),
+            const SizedBox(height: 46),
             const Column(
               children: [
-                SignUpClick(),
                 GuestClick(),
+                SignUpClick(),
               ],
             ),
           ],
