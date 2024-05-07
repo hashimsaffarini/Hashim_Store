@@ -16,7 +16,7 @@ class NameTextFormField extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(vertical: 18),
-        hintText: 'John Doe',
+        hintText: 'Hashim',
         hintStyle: GoogleFonts.interTight(
           fontSize: 16,
           fontWeight: FontWeight.w400,
