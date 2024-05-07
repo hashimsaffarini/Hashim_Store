@@ -5,16 +5,26 @@ import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/core/utils/validation.dart';
 import 'package:hashim_store/features/auth/ui/views/widgets/sign_in_form.dart';
 
-class PasswordTextFormField extends StatelessWidget {
+class PasswordTextFormField extends StatefulWidget {
   const PasswordTextFormField({
     super.key,
     required this.controller,
   });
+
   final TextEditingController? controller;
+
+  @override
+  _PasswordTextFormFieldState createState() => _PasswordTextFormFieldState();
+}
+
+class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
+  bool _isPasswordVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
+      controller: widget.controller,
+      obscureText: !_isPasswordVisible,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(vertical: 18),
         hintText: '***********',
@@ -36,12 +46,18 @@ class PasswordTextFormField extends StatelessWidget {
             size: 22,
           ),
         ),
-        suffixIcon: const Padding(
-          padding: EdgeInsets.only(right: 6),
-          child: Icon(
-            FontAwesomeIcons.eye,
+        suffixIcon: IconButton(
+          icon: Icon(
+            _isPasswordVisible
+                ? FontAwesomeIcons.eyeSlash
+                : FontAwesomeIcons.eye,
             size: 22,
           ),
+          onPressed: () {
+            setState(() {
+              _isPasswordVisible = !_isPasswordVisible;
+            });
+          },
         ),
       ),
       validator: (value) => validatePassword(value!),
