@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hashim_store/core/services/auth_services.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/core/utils/assets.dart';
 
@@ -15,14 +16,23 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Hi, Welcome Back',
-            style: GoogleFonts.inter(
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-              color: AppColors.greyPrimary,
-            ),
-          ),
+          AuthServicesImpl().getName() != null
+              ? Text(
+                  'Welcome, ${AuthServicesImpl().getName()!}',
+                  style: GoogleFonts.inter(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.primaryColor,
+                  ),
+                )
+              : Text(
+                  'Welcome, Guest!',
+                  style: GoogleFonts.inter(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.primaryColor,
+                  ),
+                ),
           Text(
             'Go Shopping Now!',
             style: GoogleFonts.inter(

@@ -8,6 +8,8 @@ abstract class AuthServices {
       String email, String password, String name);
   Future<void> signOut();
   Future<User?> currentUser();
+
+  String? getName();
 }
 
 class AuthServicesImpl implements AuthServices {
@@ -42,6 +44,7 @@ class AuthServicesImpl implements AuthServices {
       );
       User? user = userCredential.user;
       if (user != null) {
+        user.updateDisplayName(name);
         await firestoreServices.setData(path: ApiPaths.user(user.uid), data: {
           'uid': user.uid,
           'email': user.email,
@@ -67,5 +70,10 @@ class AuthServicesImpl implements AuthServices {
   @override
   Future<User?> currentUser() {
     return Future.value(firebaseAuth.currentUser);
+  }
+
+  @override
+  String? getName() {
+    return firebaseAuth.currentUser!.displayName;
   }
 }
