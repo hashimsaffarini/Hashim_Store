@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/core/widgets/custom_button.dart';
+import 'package:hashim_store/features/auth/ui/views/widgets/guest_click.dart';
 import 'package:hashim_store/features/auth/ui/views/widgets/sign_in_form.dart';
 import 'package:hashim_store/features/auth/ui/views/widgets/sign_in_header.dart';
+import 'package:hashim_store/features/auth/ui/views/widgets/sign_up_click.dart';
 
 class SignInBody extends StatelessWidget {
   const SignInBody({super.key});
@@ -32,32 +33,11 @@ class SignInBody extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            const SizedBox(height: 36),
+            const Column(
               children: [
-                Text(
-                  'Don\'t have an account?',
-                  style: GoogleFonts.interTight(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black,
-                  ),
-                ),
-                const SizedBox(width: 2),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Sign Up',
-                    style: GoogleFonts.interTight(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.primaryColor,
-                      decoration: TextDecoration.underline,
-                      decorationColor: AppColors.primaryColor,
-                    ),
-                  ),
-                ),
+                SignUpClick(),
+                GuestClick(),
               ],
             ),
           ],
