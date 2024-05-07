@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
+import 'package:hashim_store/core/utils/app_router.dart';
 
 class SignUpClick extends StatelessWidget {
   const SignUpClick({
@@ -22,7 +24,9 @@ class SignUpClick extends StatelessWidget {
         ),
         const SizedBox(width: 2),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            GoRouter.of(context).push(AppRouter.signUp);
+          },
           child: Text(
             'Sign Up',
             style: GoogleFonts.interTight(
