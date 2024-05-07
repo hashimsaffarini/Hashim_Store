@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
+import 'package:hashim_store/core/utils/validation.dart';
 import 'package:hashim_store/features/auth/ui/views/widgets/sign_in_form.dart';
 
 class EmailTextFormField extends StatelessWidget {
@@ -36,6 +37,9 @@ class EmailTextFormField extends StatelessWidget {
           ),
         ),
       ),
+      validator: (value) {
+        return validateEmail(value!);
+      },
     );
   }
 }

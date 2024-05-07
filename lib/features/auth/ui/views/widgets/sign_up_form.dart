@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hashim_store/core/widgets/custom_button.dart';
+import 'package:hashim_store/features/auth/ui/logic/auth/auth_cubit.dart';
 import 'package:hashim_store/features/auth/ui/views/widgets/email_text_form_field.dart';
 import 'package:hashim_store/features/auth/ui/views/widgets/name_text_form_field.dart';
 import 'package:hashim_store/features/auth/ui/views/widgets/password_text_form_field.dart';
@@ -16,6 +19,17 @@ class _SignUpFormState extends State<SignUpForm> {
   final _userNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  Future<void> signUp() async {
+    if (_formKey.currentState!.validate()) {
+      debugPrint('Email: ${_emailController.text}');
+      debugPrint('Password: ${_passwordController.text}');
+      await BlocProvider.of<AuthCubit>(context).signUpWithEmailAndPassword(
+        _emailController.text,
+        _passwordController.text,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -32,9 +46,9 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           const SizedBox(height: 10),
-           NameTextFormField(
+          NameTextFormField(
             controller: _userNameController,
-           ),
+          ),
           const SizedBox(height: 26),
           Text(
             'Email',
@@ -45,9 +59,9 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           const SizedBox(height: 10),
-           EmailTextFormField(
+          EmailTextFormField(
             controller: _emailController,
-           ),
+          ),
           const SizedBox(height: 26),
           Text(
             'Password',
@@ -58,9 +72,24 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           const SizedBox(height: 10),
-           PasswordTextFormField(
+          PasswordTextFormField(
             controller: _passwordController,
-           ),
+          ),
+          const SizedBox(height: 46),
+          CustomButton(
+            onPressed: () {
+              signUp();
+            },
+            borderRadius: 36,
+            child: Text(
+              'Create Account',
+              style: GoogleFonts.interTight(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ],
       ),
     );

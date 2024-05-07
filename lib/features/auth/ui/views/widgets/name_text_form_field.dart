@@ -36,6 +36,12 @@ class NameTextFormField extends StatelessWidget {
           ),
         ),
       ),
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please enter your name';
+        }
+        return null;
+      },
     );
   }
 }
