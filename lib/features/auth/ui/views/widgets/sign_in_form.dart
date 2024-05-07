@@ -11,9 +11,13 @@ class SignInForm extends StatefulWidget {
 }
 
 class _SignInFormState extends State<SignInForm> {
+  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -26,7 +30,9 @@ class _SignInFormState extends State<SignInForm> {
             ),
           ),
           const SizedBox(height: 10),
-          const EmailTextFormField(),
+          EmailTextFormField(
+            controller: _emailController,
+          ),
           const SizedBox(height: 26),
           Text(
             'Password',
@@ -37,7 +43,9 @@ class _SignInFormState extends State<SignInForm> {
             ),
           ),
           const SizedBox(height: 10),
-          const PasswordTextFormField(),
+          PasswordTextFormField(
+            controller: _passwordController,
+          ),
         ],
       ),
     );

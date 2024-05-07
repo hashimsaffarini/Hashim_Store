@@ -7,11 +7,13 @@ import 'package:hashim_store/features/auth/ui/views/widgets/sign_in_form.dart';
 class NameTextFormField extends StatelessWidget {
   const NameTextFormField({
     super.key,
+    required this.controller,
   });
-
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(vertical: 18),
         hintText: 'John Doe',

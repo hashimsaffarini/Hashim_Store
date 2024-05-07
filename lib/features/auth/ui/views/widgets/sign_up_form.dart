@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hashim_store/features/auth/ui/views/widgets/email_text_form_field.dart';
 import 'package:hashim_store/features/auth/ui/views/widgets/name_text_form_field.dart';
 import 'package:hashim_store/features/auth/ui/views/widgets/password_text_form_field.dart';
+
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
 
@@ -11,9 +12,14 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
+  final _formKey = GlobalKey<FormState>();
+  final _userNameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -26,7 +32,9 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           const SizedBox(height: 10),
-          const NameTextFormField(),
+           NameTextFormField(
+            controller: _userNameController,
+           ),
           const SizedBox(height: 26),
           Text(
             'Email',
@@ -37,7 +45,9 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           const SizedBox(height: 10),
-          const EmailTextFormField(),
+           EmailTextFormField(
+            controller: _emailController,
+           ),
           const SizedBox(height: 26),
           Text(
             'Password',
@@ -48,7 +58,9 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           const SizedBox(height: 10),
-          const PasswordTextFormField(),
+           PasswordTextFormField(
+            controller: _passwordController,
+           ),
         ],
       ),
     );
