@@ -18,7 +18,7 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           AuthServicesImpl().getName() != null
               ? Text(
-                  'Welcome, ${AuthServicesImpl().getName()!}',
+                  'Welcome, ${AuthServicesImpl().getName()}',
                   style: GoogleFonts.inter(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
@@ -26,7 +26,7 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 )
               : Text(
-                  'Welcome, Guest!',
+                  'Welcome, Guest',
                   style: GoogleFonts.inter(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
