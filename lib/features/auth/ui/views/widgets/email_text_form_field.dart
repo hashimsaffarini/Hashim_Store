@@ -14,7 +14,7 @@ class EmailTextFormField extends StatelessWidget {
     return TextFormField(
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(vertical: 18),
-        hintText: 'Enter your email',
+        hintText: 'example@gmail.com',
         hintStyle: GoogleFonts.interTight(
           fontSize: 16,
           fontWeight: FontWeight.w400,
