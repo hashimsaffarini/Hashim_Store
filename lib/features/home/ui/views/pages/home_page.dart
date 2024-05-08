@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -25,9 +23,6 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     BlocProvider.of<HomePageCubit>(context).getAllProducts();
-    log(FirebaseAuth.instance.currentUser == null
-        ? 'No User'
-        : FirebaseAuth.instance.currentUser!.email.toString());
 
     if (!HomePageCubit.openAppFirstTime &&
         FirebaseAuth.instance.currentUser?.email == null) {
