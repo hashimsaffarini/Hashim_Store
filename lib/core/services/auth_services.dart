@@ -32,11 +32,12 @@ class AuthServicesImpl implements AuthServices {
     } on FirebaseAuthException catch (e) {
       String errorMessage;
       switch (e.code) {
+        case 'wrong-password':
+        case 'invalid-password': // It's typically just 'wrong-password'
+          errorMessage = 'Wrong password provided.';
+          break;
         case 'user-not-found':
           errorMessage = 'No user found for that email.';
-          break;
-        case 'wrong-password':
-          errorMessage = 'Wrong password provided.';
           break;
         case 'invalid-email':
           errorMessage = 'Invalid email format.';
@@ -45,9 +46,10 @@ class AuthServicesImpl implements AuthServices {
           errorMessage = 'This account has been disabled.';
           break;
         default:
-          errorMessage = 'An error occurred during sign-in.';
+          errorMessage = 'An error occurred during sign-in: ${e.code}';
           break;
       }
+
       throw Exception(errorMessage);
     } catch (e) {
       throw Exception('An unexpected error occurred. Please try again.');

@@ -34,6 +34,7 @@ class _SignUpFormState extends State<SignUpForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      autovalidateMode: AutovalidateMode.always,
       key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

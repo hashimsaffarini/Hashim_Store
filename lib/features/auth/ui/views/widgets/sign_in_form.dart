@@ -32,6 +32,7 @@ class _SignInFormState extends State<SignInForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      autovalidateMode: AutovalidateMode.always,
       key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
