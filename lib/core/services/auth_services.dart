@@ -27,22 +27,30 @@ class AuthServicesImpl implements AuthServices {
       if (user != null) {
         return true;
       } else {
-        throw Exception('User creation failed for unknown reasons');
+        throw Exception('Sign-in failed, please try again.');
       }
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        throw Exception('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        throw Exception('Wrong password provided for that user.');
-      } else if (e.code == 'invalid-email') {
-        throw Exception('Invalid email provided.');
-      } else if (e.code == 'user-disabled') {
-        throw Exception('User disabled.');
+      String errorMessage;
+      switch (e.code) {
+        case 'user-not-found':
+          errorMessage = 'No user found for that email.';
+          break;
+        case 'wrong-password':
+          errorMessage = 'Wrong password provided.';
+          break;
+        case 'invalid-email':
+          errorMessage = 'Invalid email format.';
+          break;
+        case 'user-disabled':
+          errorMessage = 'This account has been disabled.';
+          break;
+        default:
+          errorMessage = 'An error occurred during sign-in.';
+          break;
       }
-
-      throw Exception('Failed to sign in: ${e.message}');
+      throw Exception(errorMessage);
     } catch (e) {
-      throw Exception('An unexpected error occurred: ${e.toString()}');
+      throw Exception('An unexpected error occurred. Please try again.');
     }
   }
 
