@@ -14,10 +14,10 @@ class PasswordTextFormField extends StatefulWidget {
   final TextEditingController? controller;
 
   @override
-  _PasswordTextFormFieldState createState() => _PasswordTextFormFieldState();
+  PasswordTextFormFieldState createState() => PasswordTextFormFieldState();
 }
 
-class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
+class PasswordTextFormFieldState extends State<PasswordTextFormField> {
   bool _isPasswordVisible = false;
 
   @override
