@@ -1,9 +1,11 @@
+import 'dart:developer';
+
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hashim_store/core/services/auth_services.dart';
 import 'package:hashim_store/core/utils/app_router.dart';
 import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/gird_view_categories_items.dart';
@@ -23,8 +25,12 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     BlocProvider.of<HomePageCubit>(context).getAllProducts();
+    log(FirebaseAuth.instance.currentUser == null
+        ? 'No User'
+        : FirebaseAuth.instance.currentUser!.email.toString());
+
     if (!HomePageCubit.openAppFirstTime &&
-        AuthServicesImpl().getName() == null) {
+        FirebaseAuth.instance.currentUser?.email == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         _showWelcomeDialog(context);
       });
@@ -49,8 +55,7 @@ class _HomePageState extends State<HomePage> {
         fontWeight: FontWeight.w500,
         color: Colors.black,
       ),
-      btnCancelOnPress: () {
-      },
+      btnCancelOnPress: () {},
       btnCancelText: 'As Guest',
       btnOkOnPress: () {
         GoRouter.of(context).go(AppRouter.signIn);

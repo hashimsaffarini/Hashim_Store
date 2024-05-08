@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hashim_store/core/services/auth_services.dart';
+import 'package:hashim_store/core/utils/app_router.dart';
 import 'package:hashim_store/features/auth/ui/logic/auth/auth_cubit.dart';
 import 'package:hashim_store/features/auth/ui/views/widgets/sign_in_body.dart';
 
@@ -36,7 +40,9 @@ class SignInPage extends StatelessWidget {
                   title: 'Success',
                   desc: 'You have successfully signed in',
                   btnOkOnPress: () {
-                    GoRouter.of(context).pop();
+                    log(AuthServicesImpl().currentUser().toString());
+                    log(AuthServicesImpl().getName().toString());
+                    GoRouter.of(context).push(AppRouter.navBar);
                   },
                 ).show();
               }

@@ -34,7 +34,12 @@ class AuthServicesImpl implements AuthServices {
         throw Exception('No user found for that email.');
       } else if (e.code == 'wrong-password') {
         throw Exception('Wrong password provided for that user.');
+      } else if (e.code == 'invalid-email') {
+        throw Exception('Invalid email provided.');
+      } else if (e.code == 'user-disabled') {
+        throw Exception('User disabled.');
       }
+
       throw Exception('Failed to sign in: ${e.message}');
     } catch (e) {
       throw Exception('An unexpected error occurred: ${e.toString()}');
@@ -57,6 +62,7 @@ class AuthServicesImpl implements AuthServices {
       User? user = userCredential.user;
       if (user != null) {
         user.updateDisplayName(name);
+        await user.reload();
         await firestoreServices.setData(path: ApiPaths.user(user.uid), data: {
           'uid': user.uid,
           'email': user.email,
@@ -87,5 +93,9 @@ class AuthServicesImpl implements AuthServices {
   @override
   String? getName() {
     return firebaseAuth.currentUser?.displayName;
+  }
+
+  static FirebaseAuth getFirebaseAuth() {
+    return FirebaseAuth.instance;
   }
 }

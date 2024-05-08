@@ -1,4 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hashim_store/core/services/auth_services.dart';
@@ -95,7 +96,7 @@ class HomePageDrawer extends StatelessWidget {
                 btnCancelOnPress: () {},
                 btnCancelText: 'Cancel',
                 btnOkOnPress: () {
-                  if (AuthServicesImpl().getName() != null) {
+                  if (FirebaseAuth.instance.currentUser?.email != null) {
                     AuthServicesImpl().signOut();
                     GoRouter.of(context).go(AppRouter.signIn);
                   } else {
