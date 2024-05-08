@@ -74,6 +74,6 @@ class AuthServicesImpl implements AuthServices {
 
   @override
   String? getName() {
-    return firebaseAuth.currentUser!.displayName;
+    return firebaseAuth.currentUser?.displayName;
   }
 }

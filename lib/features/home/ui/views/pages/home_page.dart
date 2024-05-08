@@ -49,7 +49,8 @@ class _HomePageState extends State<HomePage> {
         fontWeight: FontWeight.w500,
         color: Colors.black,
       ),
-      btnCancelOnPress: () {},
+      btnCancelOnPress: () {
+      },
       btnCancelText: 'As Guest',
       btnOkOnPress: () {
         GoRouter.of(context).go(AppRouter.signIn);

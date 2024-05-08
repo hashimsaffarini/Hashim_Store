@@ -1,5 +1,7 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hashim_store/core/services/auth_services.dart';
 import 'package:hashim_store/core/utils/app_router.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/custom_list_tile.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/drawer_header.dart';
@@ -73,7 +75,54 @@ class HomePageDrawer extends StatelessWidget {
               Icons.logout,
               color: Colors.red,
             ),
-            onTap: () {},
+            onTap: () {
+              AwesomeDialog(
+                context: context,
+                dialogType: DialogType.warning,
+                animType: AnimType.bottomSlide,
+                title: 'Log Out',
+                titleTextStyle: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
+                ),
+                desc: 'Are you sure you want to log out?',
+                descTextStyle: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black,
+                ),
+                btnCancelOnPress: () {},
+                btnCancelText: 'Cancel',
+                btnOkOnPress: () {
+                  if (AuthServicesImpl().getName() != null) {
+                    AuthServicesImpl().signOut();
+                    GoRouter.of(context).go(AppRouter.signIn);
+                  } else {
+                    AwesomeDialog(
+                      context: context,
+                      dialogType: DialogType.error,
+                      animType: AnimType.bottomSlide,
+                      title: 'Log Out',
+                      titleTextStyle: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                      desc: 'You are not logged in!',
+                      descTextStyle: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                      ),
+                      btnOkOnPress: () {},
+                      btnOkText: 'Ok',
+                    ).show();
+                  }
+                },
+                btnOkText: 'Log Out',
+              ).show();
+            },
           ),
         ],
       ),
