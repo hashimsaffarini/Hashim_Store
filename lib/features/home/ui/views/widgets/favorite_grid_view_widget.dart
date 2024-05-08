@@ -1,6 +1,10 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
+import 'package:hashim_store/core/utils/app_router.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
 
@@ -29,7 +33,21 @@ class FavoriteGridViewWidget extends StatelessWidget {
               if (state is HomePageLoaded) {
                 return IconButton(
                   onPressed: () {
-                    cubit.changeFavoriteState(product);
+                    if (FirebaseAuth.instance.currentUser == null) {
+                      AwesomeDialog(
+                        context: context,
+                        dialogType: DialogType.warning,
+                        animType: AnimType.bottomSlide,
+                        title: 'You need to login first',
+                        desc: 'Do you want to go to the login page?',
+                        btnCancelOnPress: () {},
+                        btnOkOnPress: () {
+                          GoRouter.of(context).push(AppRouter.signIn);
+                        },
+                      ).show();
+                    } else {
+                      cubit.changeFavoriteState(product);
+                    }
                   },
                   icon: Icon(
                     state.favProducts.contains(product)

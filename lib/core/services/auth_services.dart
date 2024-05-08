@@ -8,7 +8,6 @@ abstract class AuthServices {
       String email, String password, String name);
   Future<void> signOut();
   Future<User?> currentUser();
-
   String? getName();
 }
 
@@ -16,6 +15,7 @@ class AuthServicesImpl implements AuthServices {
   // Singleton Design Pattern
   final firebaseAuth = FirebaseAuth.instance;
   final firestoreServices = FirestoreService.instance;
+
   @override
   Future<bool> signInWithEmailAndPassword(String email, String password) async {
     try {
