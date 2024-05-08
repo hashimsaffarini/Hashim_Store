@@ -18,15 +18,27 @@ class AuthServicesImpl implements AuthServices {
   final firestoreServices = FirestoreService.instance;
   @override
   Future<bool> signInWithEmailAndPassword(String email, String password) async {
-    final userCredential = await firebaseAuth.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-    User? user = userCredential.user;
-    if (user != null) {
-      return true;
+    try {
+      final userCredential = await firebaseAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      User? user = userCredential.user;
+      if (user != null) {
+        return true;
+      } else {
+        throw Exception('User creation failed for unknown reasons');
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        throw Exception('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        throw Exception('Wrong password provided for that user.');
+      }
+      throw Exception('Failed to sign in: ${e.message}');
+    } catch (e) {
+      throw Exception('An unexpected error occurred: ${e.toString()}');
     }
-    return false;
   }
 
   @override
