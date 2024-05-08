@@ -73,7 +73,7 @@ class AuthServicesImpl implements AuthServices {
       if (user != null) {
         user.updateDisplayName(name);
         await user.reload();
-        await firestoreServices.setData(path: ApiPaths.user(user.uid), data: {
+        await firestoreServices.setData(path: ApiPaths.user(), data: {
           'uid': user.uid,
           'email': user.email,
           'name': name,

@@ -1,3 +1,4 @@
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hashim_store/core/services/firestore_services.dart';
 import 'package:hashim_store/core/utils/api_paths.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
@@ -34,11 +35,15 @@ class HomeServicesImpl implements HomeServices {
   }
 
   @override
-  Future<void> addFavProduct(ProductItemModel product) async =>
-      await firestoreService.setData(
-        path: ApiPaths.favoriteItem(product.id),
-        data: product.toMap(),
-      );
+  Future<void> addFavProduct(ProductItemModel product) async {
+    // if (FirebaseAuth.instance.currentUser == null) {
+    //   throw Exception('User not logged in');
+    // }
+    await firestoreService.setData(
+      path: ApiPaths.favoriteItem(product.id),
+      data: product.toMap(),
+    );
+  }
 
   @override
   Future<List<ProductItemModel>> getFavProducts() async =>
