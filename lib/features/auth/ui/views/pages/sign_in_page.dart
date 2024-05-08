@@ -23,7 +23,7 @@ class SignInPage extends StatelessWidget {
                   dialogType: DialogType.error,
                   animType: AnimType.bottomSlide,
                   title: 'Error',
-                  desc: state.error,
+                  desc: state.error.substring(11),
                   btnCancelOnPress: () {},
                   btnCancelText: 'Cancel',
                   btnOkOnPress: () {},
