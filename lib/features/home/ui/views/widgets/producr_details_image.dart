@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 
@@ -18,8 +19,8 @@ class ProductDetailsImage extends StatelessWidget {
       height: size.height * 0.6,
       child: AspectRatio(
         aspectRatio: 1,
-        child: Image.asset(
-          product.imgUrl,
+        child: CachedNetworkImage(
+          imageUrl: product.imgUrl,
           fit: BoxFit.cover,
         ),
       ),

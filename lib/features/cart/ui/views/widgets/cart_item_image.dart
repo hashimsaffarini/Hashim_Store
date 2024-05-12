@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CartItemImage extends StatelessWidget {
@@ -10,8 +11,8 @@ class CartItemImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(8),
-      child: Image.asset(
-        imgUrl,
+      child: CachedNetworkImage(
+        imageUrl: imgUrl,
         height: 130,
         width: 120,
         fit: BoxFit.cover,

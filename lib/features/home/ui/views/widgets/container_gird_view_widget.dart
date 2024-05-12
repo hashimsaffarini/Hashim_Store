@@ -18,7 +18,7 @@ class ContainerGridViewWidget extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(
+          image: NetworkImage(
             product.imgUrl,
           ),
           fit: BoxFit.cover,

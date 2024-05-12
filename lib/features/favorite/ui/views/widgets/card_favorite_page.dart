@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
@@ -20,8 +21,8 @@ class CardFavoritePage extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                product.imgUrl,
+              child: CachedNetworkImage(
+                imageUrl: product.imgUrl,
                 height: 130,
                 width: 120,
                 fit: BoxFit.cover,
