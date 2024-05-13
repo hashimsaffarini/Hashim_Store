@@ -15,7 +15,8 @@ class ColorsAvailableListView extends StatelessWidget {
             padding: const EdgeInsets.only(right: 8),
             child: CircleAvatar(
               radius: 30,
-              backgroundColor: Color(int.parse('0xff${colors[index]}')),
+              backgroundColor:
+                  Color(int.parse(colors[index].split('(')[1].split(')')[0])),
             ),
           );
         },
