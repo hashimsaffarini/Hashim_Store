@@ -38,7 +38,7 @@ class GridViewItem extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          'Product Name',
+          product.title,
           style: GoogleFonts.inter(
             fontSize: 16,
             fontWeight: FontWeight.w500,
