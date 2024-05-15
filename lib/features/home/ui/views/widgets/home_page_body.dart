@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hashim_store/core/ads/banner_ad.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/categories_text.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/list_view_categories.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/search_and_filter.dart';
@@ -14,7 +15,9 @@ class HomePageBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 24),
+          SizedBox(height: 8),
+          BannerAds(),
+          SizedBox(height: 12),
           SearchAndFilter(),
           SizedBox(height: 26),
           CategoriesText(),
