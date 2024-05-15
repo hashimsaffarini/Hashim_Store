@@ -54,12 +54,7 @@ class FilterWidget extends StatelessWidget {
             children: brands
                 .map(
                   (brand) => GestureDetector(
-                    onTap: () {
-                      GoRouter.of(context).push(
-                        AppRouter.searchPage,
-                        extra: brand,
-                      );
-                    },
+                    onTap: () => handleTap(context, brand),
                     child: Chip(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
@@ -85,6 +80,13 @@ class FilterWidget extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  void handleTap(BuildContext context, String brand) {
+    GoRouter.of(context).push(
+      AppRouter.searchPage,
+      extra: brand,
     );
   }
 
