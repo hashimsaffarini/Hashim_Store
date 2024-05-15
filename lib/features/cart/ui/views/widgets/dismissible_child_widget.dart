@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hashim_store/features/cart/ui/views/widgets/add_and_remove_widget.dart';
 import 'package:hashim_store/features/cart/ui/views/widgets/cart_item_image.dart';
+import 'package:hashim_store/features/cart/ui/views/widgets/more_vert_widget.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/sale_grid_view_widget.dart';
 
@@ -56,6 +57,7 @@ class DismissibleChildWidget extends StatelessWidget {
             ),
           ),
         ),
+        const MoreVertWidget(),
         product.sale != 0
             ? SaleGridViewWidget(product: product)
             : const SizedBox(),

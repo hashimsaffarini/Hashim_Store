@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class MoreVertWidget extends StatelessWidget {
   const MoreVertWidget({
     super.key,
@@ -7,15 +8,18 @@ class MoreVertWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 8,
-      right: 8,
+      right: -10,
+      top: -10,
       child: IconButton(
-        icon: const Icon(
-          Icons.more_vert,
-          size: 28,
+        icon: Transform.rotate(
+          angle: 0.5,
+          child: Icon(
+            Icons.push_pin_sharp,
+            size: 28,
+            color: Theme.of(context).primaryColor,
+          ),
         ),
-        color: const Color(0xff9B9B9B),
-        onPressed: () {},
+        onPressed: null,
       ),
     );
   }
