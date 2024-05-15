@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
 import 'package:hashim_store/features/home/ui/views/widgets/grid_view_item.dart';
 
@@ -16,8 +17,11 @@ class SearchPageBody extends StatelessWidget {
           BlocBuilder<HomePageCubit, HomePageState>(
             builder: (context, state) {
               if (state is HomePageLoading) {
-                return const Center(
-                  child: CircularProgressIndicator.adaptive(),
+                return const Padding(
+                  padding: EdgeInsets.only(top: 280),
+                  child: Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  ),
                 );
               } else if (state is HomePageLoaded) {
                 final products = state.products
@@ -27,21 +31,37 @@ class SearchPageBody extends StatelessWidget {
                           ),
                     )
                     .toList();
-                return Expanded(
-                  child: GridView.builder(
-                    itemCount: products.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      childAspectRatio: 0.7,
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 14,
-                      mainAxisSpacing: 12,
+                if (products.isEmpty) {
+                  return const Padding(
+                    padding: EdgeInsets.only(top: 280),
+                    child: Center(
+                      child: Text(
+                        'No Products Found!',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.primaryColor,
+                        ),
+                      ),
                     ),
-                    itemBuilder: (context, index) {
-                      return GridViewItem(product: products[index]);
-                    },
-                  ),
-                );
+                  );
+                } else {
+                  return Expanded(
+                    child: GridView.builder(
+                      itemCount: products.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        childAspectRatio: 0.7,
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 14,
+                        mainAxisSpacing: 12,
+                      ),
+                      itemBuilder: (context, index) {
+                        return GridViewItem(product: products[index]);
+                      },
+                    ),
+                  );
+                }
               } else {
                 return const Text('Error');
               }
