@@ -18,7 +18,11 @@ class SearchAndFilter extends StatelessWidget {
                 child: CustomTextField(),
               ),
               SizedBox(width: 10),
-              FilterWidget(),
+              Column(
+                children: [
+                  FilterWidget(),
+                ],
+              ),
             ],
           ),
         ),

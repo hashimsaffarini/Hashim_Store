@@ -14,34 +14,6 @@ class FilterWidget extends StatefulWidget {
 }
 
 class _FilterWidgetState extends State<FilterWidget> {
-  final List<String> brands = const [
-    'Adidas',
-    'Nike',
-    'Puma',
-    'Reebok',
-    'Under Armour',
-    'New Balance',
-    'Diesel',
-    'Levi\'s',
-    'Tommy Hilfiger',
-    'Calvin Klein',
-    'Lacoste',
-    'Hugo Boss',
-    'Armani',
-    'Versace',
-    'Gucci',
-    'Prada',
-    'Balenciaga',
-    'Diadora',
-    'H&M',
-    'Zara',
-    'Pull&Shark',
-    'Vans',
-    'Columbia',
-    'The North Face',
-    'Timberland',
-  ];
-
   void _showBrandsModal(BuildContext context) {
     showModalBottomSheet(
       isScrollControlled: true,
@@ -121,3 +93,31 @@ class _FilterWidgetState extends State<FilterWidget> {
     );
   }
 }
+
+final List<String> brands = [
+  'Adidas',
+  'Nike',
+  'Puma',
+  'Reebok',
+  'Under Armour',
+  'New Balance',
+  'Diesel',
+  'Levi\'s',
+  'Tommy Hilfiger',
+  'Calvin Klein',
+  'Lacoste',
+  'Hugo Boss',
+  'Armani',
+  'Versace',
+  'Gucci',
+  'Prada',
+  'Balenciaga',
+  'Diadora',
+  'H&M',
+  'Zara',
+  'Pull&Shark',
+  'Vans',
+  'Columbia',
+  'The North Face',
+  'Timberland',
+];

@@ -26,9 +26,13 @@ class SearchPageBody extends StatelessWidget {
               } else if (state is HomePageLoaded) {
                 final products = state.products
                     .where(
-                      (product) => product.title.toLowerCase().contains(
-                            brand.toLowerCase(),
-                          ),
+                      (product) =>
+                          product.title.toLowerCase().contains(
+                                brand.toLowerCase(),
+                              ) ||
+                          product.description.toLowerCase().contains(
+                                brand.toLowerCase(),
+                              ),
                     )
                     .toList();
                 if (products.isEmpty) {
