@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
+import 'package:hashim_store/core/utils/app_router.dart';
 
 class FilterWidget extends StatelessWidget {
   const FilterWidget({super.key});
@@ -53,7 +55,10 @@ class FilterWidget extends StatelessWidget {
                 .map(
                   (brand) => GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pop();
+                      GoRouter.of(context).push(
+                        AppRouter.searchPage,
+                        extra: brand,
+                      );
                     },
                     child: Chip(
                       shape: RoundedRectangleBorder(

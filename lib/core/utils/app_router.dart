@@ -6,6 +6,7 @@ import 'package:hashim_store/features/auth/ui/views/pages/sign_up_page.dart';
 import 'package:hashim_store/features/home/data/models/product_item_model.dart';
 import 'package:hashim_store/features/home/ui/views/pages/product_details_page.dart';
 import 'package:hashim_store/features/boarding/ui/views/pages/boarding_page.dart';
+import 'package:hashim_store/features/home/ui/views/pages/search_page.dart';
 
 abstract class AppRouter {
   static const boardingPage = '/';
@@ -13,6 +14,7 @@ abstract class AppRouter {
   static const productDetailsPage = '/productDetailsPpage';
   static const signIn = '/signIn';
   static const signUp = '/signUp';
+  static const searchPage = '/searchPage';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -45,6 +47,14 @@ abstract class AppRouter {
         path: signUp,
         pageBuilder: (context, state) => const MaterialPage(
           child: SignUpPage(),
+        ),
+      ),
+      GoRoute(
+        path: searchPage,
+        pageBuilder: (context, state) => MaterialPage(
+          child: SearchPage(
+            brand: state.extra as String,
+          ),
         ),
       ),
     ],
