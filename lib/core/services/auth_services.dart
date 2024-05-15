@@ -46,7 +46,7 @@ class AuthServicesImpl implements AuthServices {
           errorMessage = 'This account has been disabled.';
           break;
         default:
-          errorMessage = 'An error occurred during sign-in: ${e.code}';
+          errorMessage = 'Email Or Password is incorrect. Please try again.';
           break;
       }
 
