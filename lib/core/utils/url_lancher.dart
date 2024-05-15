@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -33,8 +35,9 @@ class UrlLauncher {
   static String createMessage() {
     String message =
         'Hello, I would like to inquire about the following items:\n';
+    log(HomePageCubit.cartProductsCubit.length);
     for (var item in HomePageCubit.cartProductsCubit) {
-      message += '${item.quantity}x ${item.title} at \$${item.price} each\n';
+      message += '${item.imgUrl}x ${item.title} at ${item.price}₪ \n';
     }
     message += 'Please let me know the availability and total cost. Thank you!';
     return message;

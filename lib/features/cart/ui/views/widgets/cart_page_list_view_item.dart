@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
@@ -21,32 +19,15 @@ class CartPageListViewItem extends StatelessWidget {
         } else if (state is HomePageLoaded) {
           return Dismissible(
             key: ValueKey(product.id),
-            direction: DismissDirection.horizontal,
+            direction: DismissDirection.endToStart,
             onDismissed: (direction) {
               if (direction == DismissDirection.endToStart) {
                 BlocProvider.of<HomePageCubit>(context)
                     .removeProductFromCart(product);
                 product.counter = 1;
-
-                log('Item dismissed');
-              } else if (direction == DismissDirection.startToEnd) {
-                log('Message store');
               }
             },
             background: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: Container(
-                color: Colors.green,
-                alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: const Icon(
-                  Icons.message,
-                  color: Colors.white,
-                  size: 28,
-                ),
-              ),
-            ),
-            secondaryBackground: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Container(
                 color: AppColors.primaryColor,
