@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hashim_store/core/utils/app_color.dart';
 import 'package:hashim_store/core/utils/app_router.dart';
+import 'package:hashim_store/features/home/ui/logic/home_cubit/home_page_cubit.dart';
 
-class FilterWidget extends StatelessWidget {
+class FilterWidget extends StatefulWidget {
   const FilterWidget({super.key});
 
+  @override
+  State<FilterWidget> createState() => _FilterWidgetState();
+}
+
+class _FilterWidgetState extends State<FilterWidget> {
   final List<String> brands = const [
     'Adidas',
     'Nike',
@@ -84,10 +91,14 @@ class FilterWidget extends StatelessWidget {
   }
 
   void handleTap(BuildContext context, String brand) {
-    GoRouter.of(context).push(
-      AppRouter.searchPage,
-      extra: brand,
-    );
+    GoRouter.of(context)
+        .push(
+          AppRouter.searchPage,
+          extra: brand,
+        )
+        .then((value) => setState(() {
+              BlocProvider.of<HomePageCubit>(context).getAllProducts();
+            }));
   }
 
   @override
