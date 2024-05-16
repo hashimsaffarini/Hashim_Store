@@ -3,7 +3,7 @@
 
     <application
         android:name="${applicationName}"
-        android:label="hashim_store"
+        android:label="Hashim Store"
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/LaunchTheme">
         <activity
